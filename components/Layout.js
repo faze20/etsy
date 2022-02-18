@@ -4,10 +4,10 @@ import Nav from './Nav'
 
 function Layout({children}) {
   return (
-    <div>
+    <div >
             <Nav />
 
-               <main className='flex'>
+               <main className='mx-4 my-1'>
                    {children}
                 </main>
             <Footer />
