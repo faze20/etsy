@@ -5,8 +5,15 @@ import Nav from './Nav'
 function Layout({children}) {
   return (
     <div >
+       <div>
+          {/* messages for promo and shipping */}
+          <div className='bg-black'>
+            <p className='font-sans text-xs text-white break-normal py-4 md:text-center'>
+              Every order gets a freebie item!! KLMV Cosmetics only doing US and Canada shipping at the moment!! 
+            </p>
+          </div>
+        </div>
             <Nav />
-
                <main className='mx-4 my-1'>
                    {children}
                 </main>
