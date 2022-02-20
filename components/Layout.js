@@ -8,7 +8,7 @@ function Layout({children}) {
        <div>
           {/* messages for promo and shipping */}
           <div className='bg-black'>
-            <p className='font-sans text-xs text-white break-normal py-4 md:text-center'>
+            <p className='font-sans text-xs text-white break-normal py-4 text-center'>
               Every order gets a freebie item!! KLMV Cosmetics only doing US and Canada shipping at the moment!! 
             </p>
           </div>

@@ -25,16 +25,19 @@ function Nav() {
 
        
 
-        <div className='text-red-800 flex justify-end mt-2'>
-            <div className='mx-2'> ACCOUNT</div>
+        <div className=' md:flex justify-end mt-2 '>
+
+            <div className='mx-2 hidden md:block'> <a href="#">ACCOUNT</a> </div>
+            <div className='mx-2 hidden md:block'> <a href="#">CHECKOUT</a> </div>
            
 
         {/* cart section */}
-            <div className='mx-2'>
-              CART(0)
+            <div className='mx-2 justify-end'>
+                <a href="#">CART(0)</a>
+              
             </div> 
 
-            <div className='mx-2'>CHECKOUT</div>
+           
         </div>
         
 
