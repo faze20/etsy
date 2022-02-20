@@ -29,19 +29,8 @@ export default function Home() {
         <title>Next Ecommerce</title>
         <meta name="description" content="E-commerce store" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin= 'true' />
 
       </Head>
-
-        <div>
-          {/* mobile nav */}
-        <h1 className='text-4xl tracking-tighter  font-bold'>KLMV COSMETICS</h1>
-        <pre>By  Afeez</pre>
-        </div>
-
-        
-        
        <div>
          {/* images to be gotten from cloudinary..banner */}
          <div>
