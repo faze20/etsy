@@ -14,15 +14,12 @@ import thumbnailsPic from '../public/kvlmprdbnner3.jpg'
 
 import thumblippyPic from '../public/kvlmprdbnner4.jpg'
 import homepageproductPic from '../public/kvlmprdbanner.jpg'
+import  {categories}  from '../data/products'
+import Product from '../components/Product'
 
 
 
-
-
-
-
-
-export default function Home() { 
+export default function Home({products}) { 
   return (
     <div >
       <Head>
@@ -33,6 +30,7 @@ export default function Home() {
       </Head>
        <div>
          {/* images to be gotten from cloudinary..banner */}
+        
          <div>
          <Image
             src={bannerPic}
@@ -47,66 +45,27 @@ export default function Home() {
        <div>
 
       {/* body of indexhtml grid of two rows 3 columns */}
-      <div>
+      <div className="block md:grid grid-cols-3 gap-3">
+        {
+          products.map((category, index) => (
+            <div  key={index}>
+               <div>
+                  <Image
+                      src={`/${category.image}`}
+                      alt="logo" 
+                      width={360}
+                      height={360}
+                    />
+                </div>
+                <h1>{category.title}</h1>
+
+
+            </div>
+          ))
+        }
+         </div>
 
      
-         <div>
-         <Image
-            src={lashesPic}
-            alt="logo" 
-            width={360}
-            height={360}
-          />
-         </div>
-
-         <div>
-         <Image
-            src={lipcollectionPic}
-            alt="logo" 
-            width={360}
-            height={360}
-          />
-         </div>
-         <div>
-         <Image
-            src={lotionPic}
-            alt="logo" 
-            width={360}
-            height={360}
-          />
-         </div>
-
-         </div>
-      { /* new row of item on home page */}
-         <div>
-         <div>
-         <Image
-            src={foundationPic}
-            alt="logo" 
-            width={360}
-            height={360}
-          />
-         </div>
-         <div>
-         <Image
-            src={lippyPic}
-            alt="logo" 
-            width={360}
-            height={360}
-          />
-         </div>
-         <div>
-         <Image
-            src={salesPic}
-            alt="logo" 
-            width={360}
-            height={360}
-          />
-         </div>
-         
-
-         </div>
-         {/* end new row of item on home page */}
 
          {/* homepage product and thumb nails description start */}
          <div>
@@ -149,17 +108,16 @@ export default function Home() {
 
 
          </div>
-
-        {/* thumbnail carousel end */}
+{/* thumbnail carousel end */}
 
 
          </div>
 
 
 
-         {/* homepage product and thumb nails description end */}
+{/* homepage product and thumb nails description end */}
 
-         {/* home product page descritpon start */}
+     {/* home product page descritpon start */}
          <div>
            <div>
            <h1 className='text-4xl tracking-tighter  font-bold'>KLMV HIGHLIGHTER PALETE</h1>
@@ -199,25 +157,27 @@ export default function Home() {
 
            </div>
          </div>
-
-
-
-
-                  {/* home product page descritpon end */}
+     {/* home product page descritpon end */}
                   
-                  {/* Home page people also searched start */}
+      {/* Home page people also searched start */}
 
 
 
-                                    {/* Home page people also searched start */}
-
-
-
-
-
+        {/* Home page people also searched start */}
        </div>
-
-        
     </div>
   )
+}
+export async function getServerSideProps(context) {
+  const products = categories.map(category => {
+    return {
+      title:category.title,
+      image:category.image
+    }
+  })
+  return {
+    props: { products: products}
+
+    
+  }
 }
