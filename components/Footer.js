@@ -51,7 +51,7 @@ function Footer() {
           FOLLOW US ON SOCIAL
         </h2>
         <div>
-          <ul className='space-y-4 mt-4 flex flex-col items-center '>
+          <ul className='space-y-4 mt-4 flex flex-col items-center md:items-start '>
             <li className='flex items-center'>
               <FiFacebook />
               <Link  href="https://facebook.com.com/" passHref={true} >
