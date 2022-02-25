@@ -60,7 +60,7 @@ function Nav() {
             <div className='mx-2 hidden md:block'> <a href="account">ACCOUNT</a> </div>
             <div className='mx-2 hidden md:block'> <a href="#">CHECKOUT</a> </div>
                  {/* cart section display on mobile*/}
-            <div className='ml-80 mb-6 md:mx-2 justify-end'><a href="cart">CART(0)</a> </div> 
+            <div className='ml-72 mb-6 md:mx-2 justify-end'><a href="cart">CART(0)</a> </div> 
         </div>
                  {/* secondary nav bar end */}
 
@@ -73,7 +73,7 @@ function Nav() {
                 </a>
             </div>
             <div className='relative'>
-                <h1 className='text-4xl tracking-tighter  font-bold'>KLMV COSMETICS</h1>
+                <h1 className='text-4xl tracking-tighter  font-bold'>YOUR COSMETICS</h1>
                 <span className='absolute left-1/3 top-2/3 italic'>By  Afeez</span>
             </div>
             <div className='text-2xl'>
@@ -84,9 +84,14 @@ function Nav() {
         <div className={showMobileNav ?  'block w-4/5' :'hidden' } >
             <div className='w-full h-px bg-blue-400 mt-12 mb-4'></div>
             <ul className='mx-2 space-y-4 divide-y divide-blue-200 h-screen'>
-                <li className='p-2 '><Link href=""><a  onClick={e =>setShowMobileNav(false)}>HOME</a></Link> </li>
+                <li className='p-2 '>
+                    <Link href="/">
+                        <a  onClick={e =>setShowMobileNav(false)}>HOME</a>
+                    </Link> </li>
                 <li className='p-2 flex items-center justify-between relative' >
-                     <Link href="shop" ><a onClick={e =>setShowMobileNav(false)} >SHOP</a></Link>
+                     <Link href="shop" >
+                         <a onClick={e =>setShowMobileNav(false)} >SHOP</a>
+                    </Link>
                      <button onClick={mobileMenuArrowToggle}  >
                              {showMobileMenuArrow ? <AiOutlineUp /> : <AiOutlineRight />    }
                      </button>
@@ -108,24 +113,54 @@ function Nav() {
                      </div>
                 </li>
                 <li className='p-2 flex items-center justify-between relative'>
-                    <Link href="policy"><a  onClick={e =>setShowMobileNav(false)}>POLICY</a></Link>
+                    <Link href="policy">
+                        <a  onClick={e =>setShowMobileNav(false)}>POLICY</a>
+                    </Link>
                     <button onClick={mobilePolicyArrowToggle}  >
                              {showMobilePolicyArrow ? <AiOutlineUp /> : <AiOutlineRight />    }
                      </button>
                      <div className={showMobilePolicyArrow ?  'block absolute top-0' :'hidden' }>
                         <ul className='text-sm bg-black rounded text-white py-2 space-y-4 px-2'>
-                            <li><Link href="policy"><a onClick={e =>setShowMobileNav(false)} >STORE POLICY</a></Link></li>
-                            <li><Link href="privacy"><a onClick={e =>setShowMobileNav(false)} >PRIVACY</a></Link></li>
-                            <li><Link href="termscondition"><a onClick={e =>setShowMobileNav(false)} >TERMS & CONDITIONS</a></Link></li>
-                            <li><Link href="about"><a onClick={e =>setShowMobileNav(false)} >ABOUT US</a></Link></li>
-                            <li><Link href="about"><a onClick={e =>setShowMobileNav(false)} >SOCIALS</a></Link></li>
+                            <li>
+                                <Link href="policy">
+                                    <a onClick={e =>setShowMobileNav(false)} >STORE POLICY</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="privacy">
+                                    <a onClick={e =>setShowMobileNav(false)} >PRIVACY</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="termscondition">
+                                    <a onClick={e =>setShowMobileNav(false)} >TERMS & CONDITIONS</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="about">
+                                    <a onClick={e =>setShowMobileNav(false)} >ABOUT US</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="#">
+                                    <a onClick={e =>setShowMobileNav(false)} >SOCIALS</a>
+                                </Link>
+                            </li>
 
                         </ul>
 
                      </div>
                 </li>
-                <li className='p-2' ><Link href="contact"><a onClick={e =>setShowMobileNav(false)} >CONTACT US</a></Link></li>
-                <li className='p-2' ><Link href="account"><a onClick={e =>setShowMobileNav(false)}>ACCOUNT</a></Link></li>
+                <li className='p-2' >
+                    <Link href="contact">
+                        <a onClick={e =>setShowMobileNav(false)} >CONTACT US</a>
+                    </Link>
+                </li>
+                <li className='p-2' >
+                    <Link href="account">
+                        <a onClick={e =>setShowMobileNav(false)}>ACCOUNT</a>
+                    </Link>
+                </li>
             </ul>
 
         </div>
@@ -135,7 +170,7 @@ function Nav() {
               {/* large screen nav start */}
               <div className='hidden md:flex items-center justify-between'>
                 <div>
-                    <h1 className='text-4xl tracking-tighter  font-bold'>KLMV COSMETICS</h1>
+                    <h1 className='text-4xl tracking-tighter  font-bold'>YOUR COSMETICS</h1>
                     <span>By  Afeez</span>
                 </div>
                 <div>
@@ -147,7 +182,9 @@ function Nav() {
                         </div>
                         <div className='group relative flex'>
                             <span className='hover:border-green-800 hover:border-t-4 hover:border-r-4 hover:border-l-4'>
-                                <Link href='shop'>SHOP</Link> 
+                                <Link href='shop'>
+                                    SHOP
+                                </Link> 
 
                             </span> 
                             <div className='text-2xl'>
@@ -172,7 +209,9 @@ function Nav() {
                         </div>
                         <div className='group relative flex '>
                             <span className='hover:border-b-4 hover:border-green-800'>
-                                <Link href='policy'>POLICY</Link> 
+                                <Link href='policy'>
+                                    POLICY
+                                </Link> 
                             </span> 
                             <div className='text-2xl'>
                               <RiArrowDropDownLine/>

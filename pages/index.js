@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 // import bannerPic from '../public/klvm1.jpg'
 // import lipcollectionPic from '../public/kvlmsunnys.jpg'
 // import lashesPic from '../public/homeprdtlashes.jpg'
@@ -20,10 +21,11 @@ import  {categories}  from '../data/products'
 
 
 export default function Home({products}) { 
+  const [carouselImage, setCarouselImage ] = useState('/kvlmprdbanner.jpg')
   return (
     <div >
       <Head>
-        <title>Next Ecommerce</title>
+        <title>Fullfillments Ecommerce</title>
         <meta name="description" content="E-commerce store" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -37,6 +39,7 @@ export default function Home({products}) {
             alt="klmn cosmetics lippy" 
             layout='fill'
             objectFit='fill'
+            priority='true'
             />
               <div className='absolute text-center top-1/4 mx-20 md:mt-4 md:ml-20 md:h-24 md:w-56 md:mx-1  md:inset-x-1/3 '>
 
@@ -92,7 +95,7 @@ export default function Home({products}) {
          <div >
             <div>
               <Image
-                src='/kvlmprdbanner.jpg'
+                src={carouselImage}
                 alt="logo" 
                 width={500}
                 height={500}
@@ -102,7 +105,8 @@ export default function Home({products}) {
 
 {/* thumbnail carousel start */}
             <div className='flex justify-center gap-x-4 mt-4 mx-8'>
-                <div>
+                <div onClick={e =>setCarouselImage('/kvlmfoundation.jpg')}
+                 className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
                   <Image
                     src='/kvlmprdbnner3.jpg'
                     alt="logo" 
@@ -111,7 +115,8 @@ export default function Home({products}) {
                    
                   />
                 </div>
-                <div>
+                <div onClick={e =>setCarouselImage('/kvlmsale.jpg')}
+                 className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
                   <Image
                     src='/kvlmprdbnner4.jpg'
                     alt="logo" 
@@ -119,7 +124,8 @@ export default function Home({products}) {
                     height={108}
                   />
                 </div>
-                <div>
+                <div onClick={e =>setCarouselImage('/kvlmprdbanner.jpg')}
+                 className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
                   <Image
                     src='/kvlmprdtbnner2.jpg'
                     alt="logo" 
@@ -156,10 +162,10 @@ export default function Home({products}) {
              </div>
 
              <div className='flex flex-col md:flex-row  mx-16 my-6 md:mx-0 '>
-             <button className="bg-gray-200 hover:bg-black  text-gray-800  py-4 md:py-2.5 md:px-20 border rounded shadow">
+             <button className="bg-gray-200 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-black  text-gray-800  py-4 md:py-2.5 md:px-20 border rounded shadow">
                 ADD TO CART
             </button>
-            <button className="bg-black  text-white  py-4 md:py-2.5 md:px-20 mt-6 md:mt-0 md:ml-4 border last:rounded shadow">
+            <button className="bg-black transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:tracking-wide text-white  py-4 md:py-2.5 md:px-20 mt-6 md:mt-0 md:ml-4 border last:rounded shadow">
                 BUY IT NOW
             </button>
             
