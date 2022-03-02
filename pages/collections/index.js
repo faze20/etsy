@@ -1,9 +1,51 @@
-import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import  {categories}  from '../../data/products'
 
-function index() {
+
+// link has to be the title
+
+function index({products}) {
   return (
-    <div>ALL collections and store items</div>
+    <div className="grid  gap-4 grid-cols-3">
+
+    {products.map((product, index) => (
+        <div className='mx-12' key={index} >
+          <Link href={`collections/${product.title}`} passHref>
+              <div className='relative '>
+                  <Image
+                      src={`/${product.image}`}
+                      alt="logo" 
+                      width={360}
+                      height={360}
+                      // layout="responsive"
+
+                  />
+                 <h1 className='absolute top-1/4 text-center right-0 left-0 text-white text-7xl'>{product.title}</h1>
+
+              </div>
+          </Link>
+             
+        </div>
+    )
+     
+      )}
+</div>
   )
 }
 
 export default index
+
+export async function getServerSideProps(context) {
+  const products = categories.map(category => {
+    return {
+      title:category.title,
+      image:category.image
+    }
+  })
+  return {
+    props: { products: products}
+
+    
+  }
+}

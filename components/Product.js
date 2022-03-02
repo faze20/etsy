@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function Product({products}) {
   return (
-      <div className="">
+      <div className="grid grid-cols-3">
 
           {products.map((product, index) => (
               <div key={index} >

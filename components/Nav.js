@@ -73,7 +73,7 @@ function Nav() {
                 </a>
             </div>
             <div className='relative'>
-                <h1 className='text-4xl tracking-tighter  font-bold'>YOUR COSMETICS</h1>
+                <h1 className='text-4xl tracking-tighter  font-bold'>Fashion Brand</h1>
                 <span className='absolute left-1/3 top-2/3 italic'>By  Afeez</span>
             </div>
             <div className='text-2xl'>
@@ -170,7 +170,7 @@ function Nav() {
               {/* large screen nav start */}
               <div className='hidden md:flex items-center justify-between'>
                 <div>
-                    <h1 className='text-4xl tracking-tighter  font-bold'>YOUR COSMETICS</h1>
+                    <h1 className='text-4xl tracking-tighter  font-bold'>Fashion Brand</h1>
                     <span>By  Afeez</span>
                 </div>
                 <div>
