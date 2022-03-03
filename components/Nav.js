@@ -238,7 +238,8 @@ function Nav() {
               </div>
                {/* large screen nav end */}
 
-
+               <div className="w-full bg-gray-100  h-px my-4 "></div>
+                                
     </div>
 
 

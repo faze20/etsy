@@ -2,20 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-// import bannerPic from '../public/klvm1.jpg'
-// import lipcollectionPic from '../public/kvlmsunnys.jpg'
-// import lashesPic from '../public/homeprdtlashes.jpg'
-// import lotionPic from '../public/kvlmlotion.jpg'
-
-// import salesPic from '../public/kvlmsale.jpg'
-// import lippyPic from '../public/kvlmlippy.jpg'
-// import foundationPic from '../public/kvlmfoundation.jpg'
-// import thumbfoundationPic from '../public/kvlmprdtbnner2.jpg'
-
-// import thumbnailsPic from '../public/kvlmprdbnner3.jpg'
-
-// import thumblippyPic from '../public/kvlmprdbnner4.jpg'
-// import homepageproductPic from '../public/kvlmprdbanner.jpg'
 import  {categories}  from '../data/products'
 
 
@@ -34,12 +20,12 @@ export default function Home({products}) {
        <div className='h-64 mb-4 md:selection:mx-8'>
          <div  className='relative bg-black w-full h-full  '>
             <Image
-            className='object-cover'
-            src='/klvm1.jpg'
-            alt="klmn cosmetics lippy" 
-            layout='fill'
-            objectFit='fill'
-            priority='true'
+              className='object-cover'
+              src='/klvm1.jpg'
+              alt="klmn cosmetics lippy" 
+              layout='fill'
+              objectFit='fill'
+              priority='true'
             />
               <div className='absolute text-center top-1/4 mx-20 md:mt-4 md:ml-20 md:h-24 md:w-56 md:mx-1  md:inset-x-1/3 '>
 
@@ -70,15 +56,18 @@ export default function Home({products}) {
             {
               products.map((category, index) => (
                 <div  key={index}>
-                  <div>
-                      <Image
-                          src={`/${category.image}`}
-                          alt="logo" 
-                          width={360}
-                          height={360}
-                        />
-                    </div>
-                    <h1>{category.title}</h1>
+                  <Link  href={`collections/${category.title}`} passHref>
+                    <div className='relative hover:brightness-50 transition duration-500 ease-in-out cursor-pointer '>
+                        <Image
+                            src={`/${category.image}`}
+                            alt="logo" 
+                            width={360}
+                            height={360}
+                          />
+                          <h1 className='absolute top-1/4 text-center right-0 left-0 text-white text-7xl capitalize' >{category.title}</h1>
+                      </div>
+                  </Link>
+                
 
 
                 </div>

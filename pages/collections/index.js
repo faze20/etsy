@@ -12,7 +12,7 @@ function index({products}) {
     {products.map((product, index) => (
         <div className='mx-12' key={index} >
           <Link href={`collections/${product.title}`} passHref>
-              <div className='relative '>
+              <div className='relative hover:brightness-50 transition duration-500 ease-in-out cursor-pointer'>
                   <Image
                       src={`/${product.image}`}
                       alt="logo" 

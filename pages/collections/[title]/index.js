@@ -5,32 +5,39 @@ import { collections } from "../../../data/products";
 
 export default function Index({products}) {
   const router = useRouter();
-
-  if (router.pathname.includes("/colletions/collections") ) {
-    router.pathname ==='connections'
-  }
   return (
     <div>
-      <h1>Welcome to my blog</h1>
-      <h2>{router.pathname}</h2>
+      <div className="space-y-4 my-6">
+          <h1 className="text-center font-bold text-4xl capitalize">{router.query.title}</h1>
 
-      <div className="flex  text-7xl">
-        <Link href='/collections'>
-          <a> Collections</a>
-        </Link>
-        /
-        <Link href={`/collections/${router.query.title}`}>
-          <a> {router.query.title}</a>
-        </Link>
-
-
+          <div className="flex justify-center text-gray-500 text-sm capitalize ">
+              <Link href='/'>
+                <a className="mr-2">Home</a>
+              </Link>
+              /
+              <Link href='/collections'>
+                <a className="mx-2"> Collections</a>
+              </Link>
+              /
+              <Link href={`/collections/${router.query.title}`}>
+                <a className="ml-2"> {router.query.title}</a>
+              </Link>
+          </div>
+          
+          <div className="flex justify-center text-sm">
+            <select id="filter" className="p-2  border border-gray-200 outline-0 rounded-sm ">
+              <option value="Best Selling">Best Selling</option>
+              <option value="Alphabetically, A-Z">Alphabetically, A-Z</option>
+              <option value="Alphabetically, Z-A">Alphabetically, Z-A</option>
+              <option value="Price, High to Low">Price, High to Low</option>
+              <option value="Price, High to Low">Price, High to Low</option>
+              <option value="Date, old to new">Date, old to new</option>
+              <option value="Date, new to old">Date, new to old</option>
+            </select>
+          </div>
       </div>
-      <div>
-      Shop {router.query.id} <br />
-       look out for : {router.query.title}
-      </div>
-
-      <div>
+     
+      <div className="my-12">
         <Product products={products} />
       </div>
     </div>
@@ -40,10 +47,7 @@ export default function Index({products}) {
 export async function getServerSideProps(context) {
   const title = context.params.title;
   const products = collections.filter(product => product.category === title)
-  // console.log(products);
   return {
     props: { products: products}
-
-    
   }
 }
