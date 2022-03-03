@@ -5,6 +5,10 @@ import { collections } from "../../../data/products";
 
 export default function Index({products}) {
   const router = useRouter();
+
+  if (router.pathname.includes("/colletions/collections") ) {
+    router.pathname ==='connections'
+  }
   return (
     <div>
       <h1>Welcome to my blog</h1>
@@ -34,9 +38,9 @@ export default function Index({products}) {
 }
 
 export async function getServerSideProps(context) {
-  // console.log(router.query.title);
-  const products = collections.filter(product => product.category==='eyes')
-  console.log(products);
+  const title = context.params.title;
+  const products = collections.filter(product => product.category === title)
+  // console.log(products);
   return {
     props: { products: products}
 

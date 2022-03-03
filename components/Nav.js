@@ -5,31 +5,30 @@ import { HiMenu   } from "react-icons/hi";
 import { AiOutlineClose , AiOutlineSearch, AiOutlineRight, AiOutlineUp } from "react-icons/ai";
 import {RiArrowDropDownLine} from "react-icons/ri";
 
-const ROUTE_POST_ID = "collections/[title]";
 const titles = [
   {
     id: 1,
-    title: "Perfect Lips Collection"
+    title: "perfect lips collection"
   },
   {
     id: 2,
-    title: "Lips"
+    title: "lips"
   },
   {
     id: 3,
-    title: "Face"
+    title: "face"
   },
   {
     id: 4,
-    title: "Eyes"
+    title: "eyes"
   },
   {
     id: 5,
-    title: "Accessories"
+    title: "accessories"
   },
   {
     id: 6,
-    title: "Sale"
+    title: "sales"
   }
 ];
 
@@ -98,16 +97,12 @@ function Nav() {
                      <div  className={showMobileMenuArrow ?  'block absolute top-0' :'hidden' }>
                         <ul className='text-sm bg-black z-50 rounded text-white py-2 space-y-4 px-2'>
                             {titles.map((title) => (
-                                <li key={`shop-${title.id}`}>
-                                <Link
-                                    href={{
-                                    pathname: ROUTE_POST_ID,
-                                    query: {id:title.id }
-                                    }} >
-                               
-                                    <a>{title.title}</a>
-                                </Link>
-                                </li>
+                               <li key={`shop-${title.id}`}>
+                                    <Link  href= {`/collections/${title.title}`}>
+                                        
+                                        <a>{title.title}</a>
+                                    </Link>
+                                 </li>
                             ))}
                         </ul>
                      </div>
@@ -194,12 +189,8 @@ function Nav() {
                                 <ul className='text-sm  space-y-4 px-2'>
                                     {titles.map((title) => (
                                         <li key={`shop-${title.id}`}>
-                                            <Link
-                                                href={{
-                                                pathname: ROUTE_POST_ID,
-                                                query: {id:title.id , title:title.title }
-                                                }} >
-                                        
+                                            <Link  href= {`/collections/${title.title}`}>
+                                                
                                                 <a>{title.title}</a>
                                             </Link>
                                         </li>

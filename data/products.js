@@ -4,7 +4,7 @@ export const collections = [
         price: 10,
         name: 'Blueberry Lip Scrub',
         image: 'kvlmlotion.jpg',
-        category:'perfecctLipsCollection'
+        category:'perfect lips collection'
     },
     {
         id:3,
@@ -12,7 +12,7 @@ export const collections = [
         price: 10,
         name: 'Grape Lip Mask',
         image: 'kvlmlotion.jpg',
-        category:'perfecctLipsCollection'
+        category:'perfect lips collection'
     },
     {
         id:4,
@@ -20,7 +20,7 @@ export const collections = [
         price: 10,
         name: 'Minty Lip Scrub',
         image: 'kvlmlippy.jpg',
-        category:'perfecctLipsCollection'
+        category:'perfect lips collection'
     },
     {
         id:5,
@@ -28,7 +28,7 @@ export const collections = [
         price: 10,
         name: 'Pink Starbust Lip Mask',
         image: 'kvlmlippy.jpg',
-        category:'perfecctLipsCollection'
+        category:'perfect lips collection'
     },
     {
         id:6,
@@ -36,7 +36,7 @@ export const collections = [
         price: 10,
         name: 'Lemonade Lip Scrub',
         image: 'kvlmlippy.jpg',
-        category:'perfecctLipsCollection'
+        category:'perfect lips collection'
     },
     {
         id:7,
@@ -44,7 +44,7 @@ export const collections = [
         price: 10,
         name: 'Cherry Lip Scrub',
         image: 'kvlmlotion.jpg',
-        category:'perfecctLipsCollection'
+        category:'perfect lips collection'
     },
     {
         id:8,
@@ -85,7 +85,7 @@ export const collections = [
         price: 10,
         name: 'Baddie Glasses 1',
         image: 'kvlmsunnys.jpg',
-        category:'accessories'
+        category:'face'
     },
     {
         id:13,
@@ -251,7 +251,7 @@ export const categories = [
         image:'kvlmsunnys.jpg'
     },
     {
-        title:'sale',
+        title:'sales',
         image:'kvlmsale.jpg'
     },
 ]
