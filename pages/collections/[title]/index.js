@@ -7,7 +7,7 @@ export default function Index({products}) {
   const router = useRouter();
   return (
     <div>
-      <div className="space-y-4 my-6">
+      <div className="space-y-4 my-6 relative">
           <h1 className="text-center font-bold text-4xl capitalize">{router.query.title}</h1>
 
           <div className="flex justify-center text-gray-500 text-sm capitalize ">
