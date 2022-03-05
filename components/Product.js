@@ -44,16 +44,16 @@ function Product({products}) {
           )
            
             )}
-            <div className={openQuickshopModal ? 'absolute left-0 right-0 bg-black opacity-85 top-0'  : 'hidden' }>
+            <div className={openQuickshopModal ? 'absolute left-0 right-0 bg-black opacity-85 top-0 p-12 '  : 'hidden' }>
 
-           <div className='flex bg-slate-100'>
+           <div className='flex bg-slate-100 my-4 mx-24 p-6  rounded h-full'>
                <div>
-                        <div>
+                        <div className='flex justify-center'>
                         <Image
                             src={carouselImage}
                             alt="logo" 
-                            width={500}
-                            height={500}
+                            width={300}
+                            height={300}
                         />
                         </div>
 
@@ -94,39 +94,39 @@ function Product({products}) {
                </div>
 
 
-            <div className='mt-6 grid grid-cols-1 place-items-center'>
+            <div className='mt-6 grid grid-cols-1 ml-40'>
 
-             <div className=' my-4 flex justify-between'>
+             <div className=' my-4 flex'>
 
-                 <div className='text-center'>
-                    <h1 className='text-4xl tracking-tighter mb-2 font-bold'>KLMV HIGHLIGHTER PALETE</h1>
+                 <div className=''>
+                    <h1 className='text-2xl tracking-tighter mb-2 font-bold'>KLMV HIGHLIGHTER PALETE</h1>
                     <span > $32.00 </span>
                  </div>
 
-                 <div className='text-4xl cursor-pointer'>
+                 <div className='text-4xl cursor-pointer ml-24'>
                     <AiOutlineClose onClick={(e) => setOpenQuickshopModal()} />
                  </div>
              </div>
 
-           <div className='mx-4' >
-              <p className=' text-xs text-justify'>
+           <div className='' >
+              <p className=' text-xs '>
                 Pay in full or in  4 interest-free installments for orders beteen $50 and $3000 with
                   <span className='mx-2'>shopPay</span> 
                   <a href="#">Learn more.</a>
               </p>
            </div>
            
-           <form className='my-4' action="">
+           <form className='my-4 grid place-items-center'>
 
-             <div className='flex my-14 justify-center'>
+             <div className='flex my-6'>
                 <label htmlFor="quantity">Quantity</label>
-                <input type="number" className='border w-8 px-1 text-center' name="" id="" placeholder='1' />
+                <input type="number" className='border w-10 ' name="" id="" placeholder=' 1' />
              </div>
 
              <div className='flex flex-col md:flex-row  mx-16 my-6 md:mx-0 '>
-             <button className="bg-gray-200 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-black  text-gray-800  py-4 md:py-2.5 md:px-20 border rounded shadow">
+             {/* <button className="bg-gray-200 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-black  text-gray-800  py-4 md:py-2.5 md:px-20 border rounded shadow">
                 ADD TO CART
-            </button>
+            </button> */}
             <button className="bg-black transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:tracking-wide text-white  py-4 md:py-2.5 md:px-20 mt-6 md:mt-0 md:ml-4 border last:rounded shadow">
                 BUY IT NOW
             </button>
@@ -136,7 +136,7 @@ function Product({products}) {
            </form>
            
 
-           <div className='space-y-4 mt-4'>
+           <div className='space-y-4 mt-4 h-36 overflow-auto text-xs '>
              <p>Super Pigmented Highlighter palete</p>
              <p>$ beautigul sgade</p>
              <p>Will look bomb with any makeup look</p>
