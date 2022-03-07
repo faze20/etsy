@@ -1,9 +1,15 @@
 import Image from 'next/image'
-import { useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { HiMenu   } from "react-icons/hi";
 import { AiOutlineClose , AiOutlineSearch, AiOutlineRight, AiOutlineUp } from "react-icons/ai";
 import {RiArrowDropDownLine} from "react-icons/ri";
+import { useCookies } from "react-cookie"
+import Cookies from "js-cookie";
+
+
+
+
 
 const titles = [
   {
@@ -32,10 +38,21 @@ const titles = [
   }
 ];
 
+// let item
+
+
+// const item = ()=>{
+//     if (typeof window !== 'undefined') {
+//         const item = localStorage.getItem('cartqty')
+
+// }
+
 function Nav() {
     const [showMobileNav , setShowMobileNav] = useState(false)
     const [showMobileMenuArrow , setShowMobileMenuArrow] = useState(false)
     const [showMobilePolicyArrow , setShowMobilePolicyArrow] = useState(false)
+    const [cookie, setCookie] = useCookies('signinToken')
+    const [cartQuantity, setCartQuantity] = useState(0)
 
 
 
@@ -50,17 +67,95 @@ function Nav() {
     }
 
     
+    // const cartcookie = Cookies.get('cartValue')
+
+    // const [qty, setQty] = useState(() => {
+    //     const saved = localStorage.getItem("cartqty");
+    //     const initialValue = JSON.parse(saved);
+    //     return initialValue || "";
+    //   });
+
+    // useEffect(() => {
+    //     setCartQuantity(() => {
+
+    //         localStorage.getItem("cartqty", JSON.stringify(cartQuantity))
+        
+    // }, [])
+    // return qty
+    
+    // console.log(qty)
+    // Cookies.set("cartValue", JSON.stringify(cartItem));
+    // = useState(
+    //     localStorage.getItem('cartqty') || ''
+    //   );
+
+    //   React.useEffect(() => {
+    //     localStorage.setItem('myValueInLocalStorage', value);
+    //   }, [value]);
+    useEffect(() => {
+        const item = localStorage.getItem('cartqty')
+        setCartQuantity(item)
+      }, [])
+
+
+    // const ISSERVER = typeof window === "undefined";
+    // if (!ISSERVER) setCartQuantity(localStorage.getItem('cartqty'));
+   
+        // return null
+ 
+    // if (typeof window !== undefined) {
+        
+    //     setCartQuantity(localStorage.getItem('cartqty'));
+        
+    // }
+    
+    // if(typeof window !== "undefined") {
+    //     if(localStorage.getItem("cartqty")) {
+    //       return JSON.parse(localStorage.getItem("cartqty"))
+    //     } else{
+    //     return []
+    //     }
+    //  }
+            
+    
+
+  
+
+
+
+
+
+  
 
 
   return (
     <div className='mx-4'>
                    {/* secondary nav bar start */}
         <div className=' md:flex justify-end mt-2 '>
-            <div className='mx-2 hidden md:block'> <a href="account">ACCOUNT</a> </div>
-            <div className='mx-2 hidden md:block'> <a href="#">CHECKOUT</a> </div>
+            <div className='mx-2 hidden md:block'> 
+                <Link href="account">
+                    <a >ACCOUNT</a> 
+                </Link>
+            </div>
+
+            <div className='mx-2 hidden md:block'> 
+                <Link href="#">
+                    <a >CHECKOUT</a> 
+                </Link>
+            </div>
+
                  {/* cart section display on mobile*/}
-            <div className='ml-72 mb-6 md:mx-2 justify-end'><a href="cart">CART(0)</a> </div> 
+            <div className='ml-72 mb-6 md:mx-2 justify-end'>
+                <Link href="cart">
+                    <a >
+                        CART({cartQuantity})
+                    </a> 
+                </Link>
+                    {/* CART({!!window ? window.localStorage.getItem("cartqty") : "0"}) */}
+            </div> 
         </div>
+
+
                  {/* secondary nav bar end */}
 
         
@@ -246,7 +341,7 @@ function Nav() {
 
 
 
-  )
+  )   
 }
 
 export default Nav
