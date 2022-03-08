@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { useSession, signIn, signOut } from "next-auth/react"
 import { React, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { HiMenu   } from "react-icons/hi";
@@ -53,6 +53,7 @@ function Nav() {
     const [showMobilePolicyArrow , setShowMobilePolicyArrow] = useState(false)
     const [cookie, setCookie] = useCookies('signinToken')
     const [cartQuantity, setCartQuantity] = useState(0)
+    const { data: session, status } = useSession()
 
 
 
@@ -133,15 +134,24 @@ function Nav() {
                    {/* secondary nav bar start */}
         <div className=' md:flex justify-end mt-2 '>
             <div className='mx-2 hidden md:block'> 
+                {
+                    status === 'authenticated' ? <p> welcome {session.user.name} </p>  :
+
                 <Link href="account">
                     <a >ACCOUNT</a> 
                 </Link>
+                }
             </div>
 
             <div className='mx-2 hidden md:block'> 
-                <Link href="#">
-                    <a >CHECKOUT</a> 
-                </Link>
+
+            {session ?
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                 onClick={() => signOut()}>Sign out</button> :
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                 onClick={() => signIn()}>Sign in</button>
+             }
+               
             </div>
 
                  {/* cart section display on mobile*/}
