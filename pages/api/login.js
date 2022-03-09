@@ -16,13 +16,7 @@
 // };
 
 export default function handler(req, res) {
-
     // const { username , password } = req.body
-
-
-    return res.json({success: true , name: 'Afeez20' })
-    
-
-    
+   res.json({success: true , name: 'Afeez20' })
   }
   

@@ -2,11 +2,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useSession } from "next-auth/react"
+
 import  {categories}  from '../data/products'
 
 
 
 export default function Home({products}) { 
+  const { data: session } = useSession()
+
+  console.log("session", session);
+
   const [carouselImage, setCarouselImage ] = useState('/kvlmprdbanner.jpg')
   return (
     <div >
