@@ -3,7 +3,7 @@ import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import clientPromise from "../../../lib/mongodb"
+
 
 
 export default NextAuth({
@@ -29,22 +29,35 @@ export default NextAuth({
           password: {  label: "Password", type: "password" }
         },
         async authorize(credentials, req) {
-          if(credentials.username ==="afeez20" && credentials.password === "long" ){
-            return { id: 1, name: 'korde Smith', email: 'koredebello@example.com' }
+          // if(credentials.username ==="afeez20" && credentials.password === "long" ){
+          //   return { id: 1, name: 'korde Smith', email: 'koredebello@example.com' }
+          // }
+          // return null
+
+
+          if(credentials.username && credentials.password ){
+            const res = await fetch("http://localhost:3000/api/login", {
+                method: 'POST',
+                body: JSON.stringify(credentials),
+                headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json',
+                  'User-Agent': '*', 
+                },
+            })
+            const user = await res.json()
+            console.log(user)
+            // return user
           }
           return null
-          //   return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
 
-
-          // } else{
-          //   return {message: 'not validated'}
-          // }
           // You need to provide your own logic here that takes the credentials
           // submitted and returns either a object representing a user or value
           // that is false/null if the credentials are invalid.
           // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
           // You can also use the `req` object to obtain additional parameters
           // (i.e., the request IP address)
+          // JSON.stringify({ signinToken: "ABCD" })
           // const res = await fetch("/api/login", {
           //   method: 'POST',
           //   body: JSON.stringify(credentials),

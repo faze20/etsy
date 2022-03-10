@@ -1,4 +1,5 @@
-// import cookie from "cookie";
+import cookie from "cookie";
+import clientPromise from "../../lib/mongodb"
 
 // export default (req, res) => {
 //     res.setHeader(
@@ -16,7 +17,10 @@
 // };
 
 export default function handler(req, res) {
+    // cookie.set("signinToken" , req.username , {expires: 1/24});
     // const { username , password } = req.body
-   res.json({success: true , name: 'Afeez20' })
+    res.json({ id: 3, uname: 'korde bello', email: 'koredebello22@example.com'})
+
+    // res.json({success: true , name: 'Afeez20' })
   }
   
