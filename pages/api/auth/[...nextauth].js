@@ -35,7 +35,7 @@ export default NextAuth({
           // return null
 
 
-          if(credentials.username && credentials.password ){
+          if(credentials.username ==='Craig' && credentials.password === 'long'){
             const res = await fetch("http://localhost:3000/api/login", {
                 method: 'POST',
                 body: JSON.stringify(credentials),
@@ -46,7 +46,10 @@ export default NextAuth({
                 },
             })
             const user = await res.json()
-            console.log(user)
+            if (res.ok && user){
+              return user
+            }
+            
             // return user
           }
           return null

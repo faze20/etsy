@@ -137,8 +137,8 @@ function Nav() {
                 {
                     status === 'authenticated' ? <p> welcome {session.user.name} </p>  :
 
-                <Link href="account">
-                    <a >ACCOUNT</a> 
+                <Link href="/account">
+                    <a >Join Us</a> 
                 </Link>
                 }
             </div>
@@ -156,7 +156,7 @@ function Nav() {
 
                  {/* cart section display on mobile*/}
             <div className='ml-72 mb-6 md:mx-2 justify-end'>
-                <Link href="cart">
+                <Link href="/cart">
                     <a >
                         CART({cartQuantity})
                     </a> 
