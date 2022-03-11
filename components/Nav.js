@@ -281,7 +281,7 @@ function Nav() {
                             </Link>
                         </div>
                         <div className='group relative flex'>
-                            <span className='hover:border-green-800 hover:border-t-4 hover:border-r-4 hover:border-l-4'>
+                            <span className='hover:border-green-800 hover:border-t-4 hover:border-r-4 hover:border-l-4 transition delay-700 duration-300 ease-in-out'>
                                 <Link href='shop'>
                                     SHOP
                                 </Link> 
@@ -290,7 +290,7 @@ function Nav() {
                             <div className='text-2xl'>
                               <RiArrowDropDownLine/>
                             </div>
-                            <div className='invisible group-hover:visible duration-100 absolute top-10 z-10 w-56 bg-gray-100 border-2 border-lime-900'>
+                            <div className='invisible group-hover:visible absolute top-10 z-10 w-56 bg-gray-100 border-2 border-lime-900 transition delay-700 duration-300 ease-in-out'>
                                 <ul className='text-sm  space-y-4 px-2'>
                                     {titles.map((title) => (
                                         <li key={`shop-${title.id}`}>
