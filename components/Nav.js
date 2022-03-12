@@ -193,7 +193,7 @@ function Nav() {
                         <a  onClick={e =>setShowMobileNav(false)}>HOME</a>
                     </Link> </li>
                 <li className='p-2 flex items-center justify-between relative' >
-                     <Link href="shop" >
+                     <Link href="/shop" >
                          <a onClick={e =>setShowMobileNav(false)} >SHOP</a>
                     </Link>
                      <button onClick={mobileMenuArrowToggle}  >
@@ -213,7 +213,7 @@ function Nav() {
                      </div>
                 </li>
                 <li className='p-2 flex items-center justify-between relative'>
-                    <Link href="policy">
+                    <Link href="/policy">
                         <a  onClick={e =>setShowMobileNav(false)}>POLICY</a>
                     </Link>
                     <button onClick={mobilePolicyArrowToggle}  >
@@ -222,22 +222,22 @@ function Nav() {
                      <div className={showMobilePolicyArrow ?  'block absolute top-0' :'hidden' }>
                         <ul className='text-sm bg-black rounded text-white py-2 space-y-4 px-2'>
                             <li>
-                                <Link href="policy">
+                                <Link href="/policy">
                                     <a onClick={e =>setShowMobileNav(false)} >STORE POLICY</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="privacy">
+                                <Link href="/privacy">
                                     <a onClick={e =>setShowMobileNav(false)} >PRIVACY</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="termscondition">
+                                <Link href="/termscondition">
                                     <a onClick={e =>setShowMobileNav(false)} >TERMS & CONDITIONS</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="about">
+                                <Link href="/about">
                                     <a onClick={e =>setShowMobileNav(false)} >ABOUT US</a>
                                 </Link>
                             </li>
@@ -252,12 +252,12 @@ function Nav() {
                      </div>
                 </li>
                 <li className='p-2' >
-                    <Link href="contact">
+                    <Link href="/contact">
                         <a onClick={e =>setShowMobileNav(false)} >CONTACT US</a>
                     </Link>
                 </li>
                 <li className='p-2' >
-                    <Link href="account">
+                    <Link href="/account">
                         <a onClick={e =>setShowMobileNav(false)}>ACCOUNT</a>
                     </Link>
                 </li>
@@ -280,9 +280,9 @@ function Nav() {
                                 <a> HOME</a> 
                             </Link>
                         </div>
-                        <div className='group relative flex'>
-                            <span className='hover:border-green-800 hover:border-t-4 hover:border-r-4 hover:border-l-4 transition delay-700 duration-300 ease-in-out'>
-                                <Link href='shop'>
+                        <div className='group relative flex bg-inherit hover:bg-gray-100'>
+                            <span className='  px-1  '>
+                                <Link href='/shop'>
                                     SHOP
                                 </Link> 
 
@@ -290,40 +290,62 @@ function Nav() {
                             <div className='text-2xl'>
                               <RiArrowDropDownLine/>
                             </div>
-                            <div className='invisible group-hover:visible absolute top-10 z-10 w-56 bg-gray-100 border-2 border-lime-900 transition delay-700 duration-300 ease-in-out'>
+                            <div className='invisible group-hover:visible absolute top-6 pt-4 z-10 w-56 bg-gray-100 '>
                                 <ul className='text-sm  space-y-4 px-2'>
                                     {titles.map((title) => (
                                         <li key={`shop-${title.id}`}>
                                             <Link  href= {`/collections/${title.title}`}>
                                                 
-                                                <a>{title.title}</a>
+                                                <a className="uppercase hover:text-green-600 hover:tracking-wider">{title.title}</a>
                                             </Link>
                                         </li>
                                 ))}
                                 </ul>
                             </div>
                         </div>
-                        <div className='group relative flex '>
-                            <span className='hover:border-b-4 hover:border-green-800'>
-                                <Link href='policy'>
+                        <div className='group relative flex bg-inherit hover:bg-gray-100'>
+                            <span className='px-1'>
+                                <Link href='/policy'>
                                     POLICY
                                 </Link> 
                             </span> 
                             <div className='text-2xl'>
                               <RiArrowDropDownLine/>
                             </div>
-                            <div className='invisible group-hover:visible duration-100 absolute top-10 z-10 w-56 bg-gray-100'>
+                            <div className='invisible group-hover:visible duration-100 absolute top-6 pt-4 z-10 w-56 bg-gray-100'>
                                 <ul className='text-sm  space-y-4 px-2'>
-                                    <li>STORE POLICY</li>
-                                    <li>PRIVACY</li>
-                                    <li>TERMS & CONDITIONS</li>
-                                    <li>ABOUT US</li>
-                                    <li>SOCIALS</li>
+                                    <li>
+                                        <Link href="/policy">
+                                             <a className="uppercase hover:text-green-600 hover:tracking-wider" >STORE POLICY </a>
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link href="/privacy">
+                                             <a className="uppercase hover:text-green-600 hover:tracking-wider">Privacy </a>
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link href="/termscondition">
+                                            <a className="uppercase hover:text-green-600 hover:tracking-wider">TERMS & CONDITIONS </a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/about">
+                                            <a className="uppercase hover:text-green-600 hover:tracking-wider">ABOUT US </a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/about">
+                                            <a className="uppercase hover:text-green-600 hover:tracking-wider">SOCIALS </a>
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div>
-                            <Link  href="contact">
+                            <Link  href="/contact">
                                 <a>CONTACT US</a>
                             </Link>
                         </div>

@@ -24,19 +24,19 @@ function Footer() {
             </li>
             <li>
               
-          <Link  href="shop" >
+          <Link  href="/shop" >
               <a>SHOP</a> 
           </Link>
             </li>
             <li>
               
-          <Link  href="policy" >
+          <Link  href="/policy" >
               <a>POLICY</a> 
           </Link>
             </li>
             <li>
               
-          <Link  href="contact" >
+          <Link  href="/contact" >
               <a> CONTACT US</a> 
           </Link>
             </li>
@@ -82,7 +82,7 @@ function Footer() {
 
             <li className='flex items-center'>
               <HiOutlineAtSymbol />
-              <Link  href="contact" >
+              <Link  href="/contact" >
                   <a className='mx-2'>email</a> 
               </Link>
             </li>

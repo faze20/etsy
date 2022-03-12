@@ -39,7 +39,7 @@ export default function Home({products}) {
                   Perfect Lips Collection
                 </h2>
               <span className=' text-white rounded bg-black py-2 px-1 '>
-                <Link  href="shop">
+                <Link  href="/shop">
                     <a className='m-4 '> Shop </a>
                     
                 </Link>
@@ -62,7 +62,7 @@ export default function Home({products}) {
             {
               products.map((category, index) => (
                 <div  key={index}>
-                  <Link  href={`collections/${category.title}`} passHref>
+                  <Link  href={`/collections/${category.title}`} passHref>
                     <div className='relative hover:brightness-50 transition duration-500 ease-in-out cursor-pointer '>
                         <Image
                             src={`/${category.image}`}
