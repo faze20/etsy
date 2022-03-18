@@ -8,6 +8,9 @@ import { FaPinterestP } from "react-icons/fa";
 
 function Footer() {
   return (
+    <div>
+
+   
     <div className='grid  grid-cols-1 py-4 mx-3 mt-12 md:grid-cols-4 gap-4'>
 {/* first div footer start */}
       <div className='my-6 text-center md:text-left'>
@@ -126,7 +129,15 @@ function Footer() {
 
 
 
-
+</div>
+<p className='text-center mb-1' >
+  Copyright
+  
+  <Link href="https://softwaredevbytes.com" passHref={true}>
+     <a>Softwaredevbytes </a> 
+  </Link> 
+  &copy;
+   {new Date().getFullYear()}</p>
 
     </div>
   )

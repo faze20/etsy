@@ -5,6 +5,7 @@ import { HiMenu   } from "react-icons/hi";
 import { AiOutlineClose , AiOutlineSearch, AiOutlineRight, AiOutlineUp } from "react-icons/ai";
 import {RiArrowDropDownLine} from "react-icons/ri";
 import { useCookies } from "react-cookie"
+import { useSelector } from 'react-redux';
 import Cookies from "js-cookie";
 
 
@@ -54,6 +55,12 @@ function Nav() {
     const [cookie, setCookie] = useCookies('signinToken')
     const [cartQuantity, setCartQuantity] = useState(0)
     const { data: session, status } = useSession()
+    const cart = useSelector((state) => state.cart);
+
+
+    const getItemsCount = () => {
+        return cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
+      };
 
 
 
@@ -68,66 +75,11 @@ function Nav() {
     }
 
     
-    // const cartcookie = Cookies.get('cartValue')
 
-    // const [qty, setQty] = useState(() => {
-    //     const saved = localStorage.getItem("cartqty");
-    //     const initialValue = JSON.parse(saved);
-    //     return initialValue || "";
-    //   });
-
-    // useEffect(() => {
-    //     setCartQuantity(() => {
-
-    //         localStorage.getItem("cartqty", JSON.stringify(cartQuantity))
-        
-    // }, [])
-    // return qty
-    
-    // console.log(qty)
-    // Cookies.set("cartValue", JSON.stringify(cartItem));
-    // = useState(
-    //     localStorage.getItem('cartqty') || ''
-    //   );
-
-    //   React.useEffect(() => {
-    //     localStorage.setItem('myValueInLocalStorage', value);
-    //   }, [value]);
     useEffect(() => {
         const item = localStorage.getItem('cartqty')
         setCartQuantity(item)
       }, [])
-
-
-    // const ISSERVER = typeof window === "undefined";
-    // if (!ISSERVER) setCartQuantity(localStorage.getItem('cartqty'));
-   
-        // return null
- 
-    // if (typeof window !== undefined) {
-        
-    //     setCartQuantity(localStorage.getItem('cartqty'));
-        
-    // }
-    
-    // if(typeof window !== "undefined") {
-    //     if(localStorage.getItem("cartqty")) {
-    //       return JSON.parse(localStorage.getItem("cartqty"))
-    //     } else{
-    //     return []
-    //     }
-    //  }
-            
-    
-
-  
-
-
-
-
-
-  
-
 
   return (
     <div className='mx-4'>
@@ -158,10 +110,9 @@ function Nav() {
             <div className='ml-72 mb-6 md:mx-2 justify-end'>
                 <Link href="/cart">
                     <a >
-                        CART({cartQuantity})
+                        CART ({getItemsCount()})
                     </a> 
                 </Link>
-                    {/* CART({!!window ? window.localStorage.getItem("cartqty") : "0"}) */}
             </div> 
         </div>
 

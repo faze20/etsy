@@ -3,7 +3,7 @@ export const collections = [
         id:1,
         price: 10,
         name: 'Blueberry Lip Scrub',
-        image: 'kvlmlotion.jpg',
+        image: 'lippy1.png',
         category:'perfect lips collection'
     },
     {
@@ -11,7 +11,7 @@ export const collections = [
 
         price: 10,
         name: 'Grape Lip Mask',
-        image: 'kvlmlotion.jpg',
+        image: 'lippy5.png',
         category:'perfect lips collection'
     },
     {
@@ -19,7 +19,7 @@ export const collections = [
 
         price: 10,
         name: 'Minty Lip Scrub',
-        image: 'kvlmlippy.jpg',
+        image: 'lippy4.png',
         category:'perfect lips collection'
     },
     {
@@ -27,7 +27,7 @@ export const collections = [
 
         price: 10,
         name: 'Pink Starbust Lip Mask',
-        image: 'kvlmlippy.jpg',
+        image: 'lippy6.png',
         category:'perfect lips collection'
     },
     {
@@ -35,7 +35,7 @@ export const collections = [
 
         price: 10,
         name: 'Lemonade Lip Scrub',
-        image: 'kvlmlippy.jpg',
+        image: 'lippy banner.png',
         category:'perfect lips collection'
     },
     {
@@ -43,7 +43,7 @@ export const collections = [
 
         price: 10,
         name: 'Cherry Lip Scrub',
-        image: 'kvlmlotion.jpg',
+        image:'lippy6.png',
         category:'perfect lips collection'
     },
     {
@@ -51,7 +51,7 @@ export const collections = [
 
         price: 10,
         name: 'Baddies sunglases',
-        image: 'kvlmsunnys.jpg',
+        image: 'sunny4.png',
         category:'accessories'
     },
     {
@@ -59,7 +59,7 @@ export const collections = [
 
         price: 10,
         name: 'Baddie Glasses',
-        image: 'kvlmsunnys.jpg',
+        image: 'sunny1.png',
         category:'accessories'
     },
     {
@@ -67,7 +67,7 @@ export const collections = [
 
         price: 10,
         name: 'Badddie Glasse 4',
-        image: 'kvlmsunnys.jpg',
+        image:'sunny3.png',
         category:'accessories'
     },
     {
@@ -75,7 +75,7 @@ export const collections = [
 
         price: 10,
         name: 'Baddie Glasses 3',
-        image: 'kvlmsunnys.jpg',
+        image: 'sunny2.png',
         category:'accessories'
     },
     {
@@ -84,23 +84,63 @@ export const collections = [
 
         price: 10,
         name: 'Baddie Glasses 1',
-        image: 'kvlmsunnys.jpg',
+        image: 'facials1.png',
         category:'face'
     },
     {
         id:13,
 
         price: 10,
-        name: 'The Nude shadow pallete',
-        image: 'kvlmfoundation.jpg',
-        category:'eyes'
+        name: 'The serum full',
+        image: 'facials3.png',
+        category:'face'
+    },
+    {
+        id:30,
+
+        price: 10,
+        name: 'The serum treatment',
+        image: 'facials2.png',
+        category:'face'
+    },
+    {
+        id:31,
+
+        price: 10,
+        name: 'The serum treatment',
+        image: 'facials4.png',
+        category:'face'
+    },
+    {
+        id:32,
+
+        price: 10,
+        name: 'The serum treatment',
+        image: 'facials5.png',
+        category:'face'
+    },
+    {
+        id:33,
+
+        price: 10,
+        name: 'The serum treatment',
+        image: 'facials6.png',
+        category:'face'
+    },
+    {
+        id:34,
+
+        price: 10,
+        name: 'The serum treatment',
+        image: 'facials8.png',
+        category:'face'
     },
     {
         id:14,
 
         price: 10,
         name: 'Vogue',
-        image: 'kvlmfoundation.jpg',
+        image: 'eyelashesn1.png',
         category:'eyes'
     },
     {
@@ -108,7 +148,7 @@ export const collections = [
 
         price: 10,
         name: 'Neon eyeshadow pigment',
-        image: 'homeprdtlashes.jpg',
+        image: 'eyelashesn3.png',
         category:'eyes'
     },
     {
@@ -116,7 +156,7 @@ export const collections = [
 
         price: 10,
         name: 'Princess Treatment',
-        image: 'kvlmfoundation.jpg',
+        image:'eyelashesn4.png',
         category:'eyes'
     },
     {
@@ -124,7 +164,7 @@ export const collections = [
 
         price: 10,
         name: 'Butterfly effect',
-        image: 'kvlmfoundation.jpg',
+        image: 'eyelashesn2.png',
         category:'eyes'
     },
     {
@@ -132,7 +172,7 @@ export const collections = [
 
         price: 10,
         name: 'Trophy',
-        image: 'kvlmfoundation.jpg',
+        image: 'eyelashesn5.png',
         category:'eyes'
     },
     {
@@ -140,7 +180,7 @@ export const collections = [
 
         price: 10,
         name: 'Vogue',
-        image: 'kvlmlashes.jpg',
+        image: 'eyelashes2.png',
         category:'lashes'
     },
     {
@@ -148,7 +188,7 @@ export const collections = [
 
         price: 10,
         name: 'Princess Treatment',
-        image: 'kvlmlashes.jpg',
+        image: 'eyelashes1.png',
         category:'lashes'
     },
     {
@@ -156,7 +196,7 @@ export const collections = [
 
         price: 10,
         name: 'Butterfly effect',
-        image: 'homeprdtlashes.jpg',
+        image: 'eyelashes4.png',
         category:'lashes'
     },
     {
@@ -164,7 +204,7 @@ export const collections = [
 
         price: 10,
         name: 'Trophy',
-        image: 'homeprdtlashes.jpg',
+        image: 'eyelashes5.png',
         category:'lashes'
     },
     {
@@ -172,7 +212,7 @@ export const collections = [
 
         price: 10,
         name: 'A little brown moment',
-        image: 'kvlmlippy.jpg',
+        image: 'lippy4.png',
         category:'lips'
     },
     {
@@ -180,7 +220,7 @@ export const collections = [
 
         price: 10,
         name: 'bold',
-        image: 'klvm1.jpg',
+        image: 'lippy6.png',
         category:'lips'
     },
     
@@ -189,7 +229,7 @@ export const collections = [
 
         price: 10,
         name: 'Neon eyeshadow pigment',
-        image: 'kvlmsale.jpg',
+        image: 'eyelashes6.png',
         category:'sales'
     },
     {
@@ -197,7 +237,7 @@ export const collections = [
 
         price: 6,
         name: 'Baddies sunglasses',
-        image: 'kvlmsale.jpg',
+        image: 'facial6.png',
         category:'sales'
     },
     {
@@ -205,7 +245,7 @@ export const collections = [
 
         price: 6,
         name: 'Baddies Glasses',
-        image: 'kvlmsale.jpg',
+        image: 'skincare1.png',
         category:'sales'
     },
     {
@@ -213,7 +253,7 @@ export const collections = [
 
         price: 6,
         name: 'Baddie Glasses 4',
-        image: 'kvlmsale.jpg',
+        image: 'skincare2.png',
         category:'sales'
     },
     {
@@ -221,7 +261,7 @@ export const collections = [
 
         price: 10,
         name: 'Baddie Glasses 3',
-        image: 'kvlmsale.jpg',
+        image: 'serum.png',
         category:'sales'
     }
 
@@ -232,27 +272,27 @@ export const collections = [
 export const categories = [
     {
         title:'perfect lips collection',
-        image:'kvlmlotion.jpg'
+        image:'lippy5.png'
     },
     {
         title:'lips',
-        image:'kvlmlippy.jpg'
+        image:'lippy1.png'
     },
     {
         title:'eyes',
-        image:'kvlmlashes.jpg'
+        image:'eyelashesn5.png'
     },
     {
         title:'face',
-        image:'kvlmfoundation.jpg'
+        image:'facials3.png'
     },
     {
         title:'accesories',
-        image:'kvlmsunnys.jpg'
+        image:'sunny1.png'
     },
     {
         title:'sales',
-        image:'kvlmsale.jpg'
+        image:'lippy3.png'
     },
 ]
 

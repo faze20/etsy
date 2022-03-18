@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSession } from "next-auth/react"
+import { useRouter } from 'next/router';
 
 import  {categories}  from '../data/products'
 
@@ -13,7 +14,12 @@ export default function Home({products}) {
 
   console.log("session", session);
 
-  const [carouselImage, setCarouselImage ] = useState('/kvlmprdbanner.jpg')
+  const [carouselImage, setCarouselImage ] = useState('/facials1.png')
+  const { isFallback } = useRouter();
+
+  if (isFallback) {
+      return <> <h2>Loading...</h2></>;
+  }
   return (
     <div >
       <Head>
@@ -27,8 +33,10 @@ export default function Home({products}) {
          <div  className='relative bg-black w-full h-full  '>
             <Image
               className='object-cover'
-              src='/klvm1.jpg'
+              src='/bannernew.png'
               alt="klmn cosmetics lippy" 
+              // width={1080}
+              // height={360}
               layout='fill'
               objectFit='fill'
               priority='true'
@@ -61,9 +69,9 @@ export default function Home({products}) {
       <div className="block md:grid grid-cols-3 gap-3 md:place-items-center">
             {
               products.map((category, index) => (
-                <div  key={index}>
+                <div  key={index} className='rounded-sm'>
                   <Link  href={`/collections/${category.title}`} passHref>
-                    <div className='relative hover:brightness-50 transition duration-500 ease-in-out cursor-pointer '>
+                    <div className='relative hover:brightness-50 transition duration-500 ease-in-out cursor-pointer'>
                         <Image
                             src={`/${category.image}`}
                             alt="logo" 
@@ -71,7 +79,7 @@ export default function Home({products}) {
                             height={360}
                           />
                           <h1 className='absolute top-1/4 text-center right-0 left-0 text-white text-7xl capitalize' >{category.title}</h1>
-                      </div>
+                    </div>
                   </Link>
                 
 
@@ -100,29 +108,29 @@ export default function Home({products}) {
 
 {/* thumbnail carousel start */}
             <div className='flex justify-center gap-x-4 mt-4 mx-8'>
-                <div onClick={e =>setCarouselImage('/kvlmfoundation.jpg')}
-                 className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                <div onClick={e =>setCarouselImage('/facials1.png')}
+                 className='cursor-pointer border border-gray-500 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>
                   <Image
-                    src='/kvlmprdbnner3.jpg'
+                    src='/facials1thumbnail.png'
                     alt="logo" 
                     width={108}
                     height={108}
                    
                   />
                 </div>
-                <div onClick={e =>setCarouselImage('/kvlmsale.jpg')}
-                 className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                <div onClick={e =>setCarouselImage('/sunny3.png')}
+                 className='cursor-pointer  border border-gray-500 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
                   <Image
-                    src='/kvlmprdbnner4.jpg'
+                    src='/thumbnail3.jpg'
                     alt="logo" 
                     width={108}
                     height={108}
                   />
                 </div>
-                <div onClick={e =>setCarouselImage('/kvlmprdbanner.jpg')}
-                 className='cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                <div onClick={e =>setCarouselImage('/sunny4.png')}
+                 className='cursor-pointer  border border-gray-500 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
                   <Image
-                    src='/kvlmprdtbnner2.jpg'
+                    src='/sunnythumbnail.jpeg'
                     alt="logo" 
                     width={108}
                     height={108}
@@ -157,7 +165,8 @@ export default function Home({products}) {
              </div>
 
              <div className='flex flex-col md:flex-row  mx-16 my-6 md:mx-0 '>
-             <button className="bg-gray-200 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-black  text-gray-800  py-4 md:py-2.5 md:px-20 border rounded shadow">
+             <button 
+             className="bg-gray-200 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-black  text-gray-800  py-4 md:py-2.5 md:px-20 border rounded shadow">
                 ADD TO CART
             </button>
             <button className="bg-black transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:tracking-wide text-white  py-4 md:py-2.5 md:px-20 mt-6 md:mt-0 md:ml-4 border last:rounded shadow">
@@ -239,7 +248,8 @@ export default function Home({products}) {
 </div>
   )
 }
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
+export async function getStaticProps() {
   const products = categories.map(category => {
     return {
       title:category.title,
@@ -247,8 +257,6 @@ export async function getServerSideProps(context) {
     }
   })
   return {
-    props: { products: products}
-
-    
+    props: { products: products, revalidate: 30}
   }
 }
