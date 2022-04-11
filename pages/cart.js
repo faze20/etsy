@@ -6,12 +6,10 @@ import {
   decrementQuantity,
   removeFromCart,
 } from '../redux/cart.slice';
-import Cookies from 'js-cookie'
-// import { useRouter } from 'next/router'
-
+import { useRouter } from 'next/router'
 
 const Cart = () => {
-  // const router = useRouter()
+  const router = useRouter()
   const[cartItem , setCartItem ] = useState(0);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -27,44 +25,86 @@ const Cart = () => {
 
 
   return (
-    <div className="flex">
+    <div className="block">
+      <div className="flex justify-between my-4">
+        <h1 className="text-4xl">My Cart</h1>
+        <button onClick={() => router.back()}> &larr; continue shopping</button>
+      </div>
       
       <div>
         {cart.length === 0 ? (
           <h1>Your Cart is Empty!</h1>
         ) :(
           <>
-          <h2 className="text-center text-2xl mb-6">Cart Items:</h2>
+          <div className="m-0 pl-2 md:p-2 lg:m-4 bg-lime-50 lg:p-8 rounded-2xl">
+
           
-          {cart.map((item, index) => (
-            <div key={index} className='flex w-full'>
-              <div className=''>
-                <Image src={`/${item.image}`} alt='logo' height={90} width={65} />
-              </div>
-              <p>{item.name}</p>
-              <p>$ {item.price}</p>
-              <p>{item.quantity}</p>
-              <div className='flex py-8'>
-              <button 
-              className="bg-transparent mx-1 hover:bg-blue-500 text-blue-700  hover:text-white px-4 border border-blue-500 hover:border-transparent rounded"
-              onClick={() => dispatch(incrementQuantity(item.id))}>
-                  +
-                </button>
-                <button 
-                className="bg-transparent mx-1 hover:bg-green-500 text-green-700  hover:text-white  px-4 border border-green-500 hover:border-transparent rounded"
-                onClick={() => dispatch(decrementQuantity(item.id))}>
-                  -
-                </button>
-                <button
-                className="bg-transparent mx-1 hover:bg-red-500 text-red-700  hover:text-white  px-4 border border-red-500 hover:border-transparent rounded"
-                onClick={() => dispatch(removeFromCart(item.id))}>
-                  x
-                </button>
+            <table className="table-auto w-full">
+            <thead>
+              <tr className="text-left text-xs md:text-xs lg:text-base">
                 
-                </div>
-              <p>$ {item.quantity * item.price}</p>
-            </div>
+                <th className="w-1/2"> <div className="my-4">Product</div> </th>
+                <th><div className="my-4">Price</div></th>
+                <th><div className="my-4">Quantity</div></th>
+                <th><div className="my-4 text-center md:text-left">Total</div></th>
+
+               
+              </tr>
+            </thead>
+            <tbody>
+             
+          {cart.map((item, index) => (
+           <tr key={index} className="border-b text-xs md:text-xs lg:text-base" >
+           
+              <td>
+                  <div className="flex items-center py-2 w-1/2">
+                    <Image src={`/${item.image}`} alt='logo' height={100} width={100} />
+                    <p className="ml-0.5 pl-1 md:ml-6 w-1/6">{item.name}</p>
+                  </div>
+              </td>
+
+              <td>
+                 <p className="mb-10 md:m-0">${item.price}</p>
+              </td>
+
+              <td>
+                  <div className='flex flex-col md:flex-row  py-8 w-12'>
+                      <button 
+                          className="bg-green-500 text-white mx-1  px-4 border  rounded"
+                          onClick={() => dispatch(incrementQuantity(item.id))}>
+                        +
+                      </button>
+                      <button
+                      className="px-4 border mx-1 my-1 rounded"
+                      >
+                        {item.quantity}
+                      </button>
+
+                      <button 
+                      className=" px-4 border mx-1 rounded"
+                      onClick={() => dispatch(decrementQuantity(item.id))}>
+                        -
+                      </button>
+                  </div>
+              </td>
+
+             <td>
+                  <div className="flex flex-col  md:flex-row items-center justify-between">
+                      <p className="mb-8 md:m-0">$ {item.quantity * item.price}</p>
+                      <button
+                        className=" px-4 border rounded"
+                        onClick={() => dispatch(removeFromCart(item.id))}>
+                          x
+                      </button>
+                  </div>
+             </td>
+           </tr>
           ))}
+          
+           </tbody>
+           </table>
+           </div>
+
           <h2>Grand Total: $ {getTotalPrice()}</h2>
 
           <div className="mt-4">
@@ -72,7 +112,7 @@ const Cart = () => {
               Pay Now (${getTotalPrice()})
             </button>
           </div>
-          
+         
           </>
         )
         
@@ -85,6 +125,27 @@ const Cart = () => {
 }
 
 export default Cart
+
+{/* <table class="table-auto">
+  <thead>
+    <tr>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+      <td>Malcolm Lockyer</td>
+      <td>1961</td>
+      <div className="flex justify-around mb-6">
+                <h4>Product</h4>
+                <h4>Price</h4>
+                <h4>Quantity</h4>
+                <h4>Total</h4>
+              </div>
+    </tr> */}
 
 
 
