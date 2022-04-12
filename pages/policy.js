@@ -1,7 +1,7 @@
 
 function Policy() {
   return (
-    <div>
+    <div className="flex justify-center leading-8">
       <div className="max-w-screen-sm">
         <h2 className='underline font-medium my-8 text-center'>
           PLEASE READ BEFORE ORDERING. THANK YOU!

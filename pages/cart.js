@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { PayPalButton } from "react-paypal-button-v2";
 import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
 import {
@@ -6,11 +7,11 @@ import {
   decrementQuantity,
   removeFromCart,
 } from '../redux/cart.slice';
-import { useRouter } from 'next/router'
+import  { useRouter } from 'next/router'
 
 const Cart = () => {
   const router = useRouter()
-  const[cartItem , setCartItem ] = useState(0);
+  const[showPaypal , setShowPaypal ] = useState(false);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -20,12 +21,8 @@ const Cart = () => {
       0
     );
   };
-
-
-
-
   return (
-    <div className="block">
+    <div className="block relative">
       <div className="flex justify-between my-4">
         <h1 className="text-4xl">My Cart</h1>
         <button onClick={() => router.back()}> &larr; continue shopping</button>
@@ -36,26 +33,26 @@ const Cart = () => {
           <h1>Your Cart is Empty!</h1>
         ) :(
           <>
-          <div className="m-0 pl-2 md:p-2 lg:m-4 bg-lime-50 lg:p-8 rounded-2xl">
-
-          
+          <div className="mb-4">
+          <button onClick={()=>setShowPaypal(true)}
+            className="bg-green-500 hover:bg-green-700 hover:tracking-widest text-white font-bold py-2 px-4 rounded w-full ">
+              Pay Now (${getTotalPrice()})
+            </button>
+          </div>
+          <div className="m-0 pl-2 md:p-2 lg:m-2 bg-lime-50 lg:p-8 rounded-2xl">
             <table className="table-auto w-full">
             <thead>
               <tr className="text-left text-xs md:text-xs lg:text-base">
-                
                 <th className="w-1/2"> <div className="my-4">Product</div> </th>
                 <th><div className="my-4">Price</div></th>
                 <th><div className="my-4">Quantity</div></th>
                 <th><div className="my-4 text-center md:text-left">Total</div></th>
-
-               
               </tr>
             </thead>
             <tbody>
              
           {cart.map((item, index) => (
            <tr key={index} className="border-b text-xs md:text-xs lg:text-base" >
-           
               <td>
                   <div className="flex items-center py-2 w-1/2">
                     <Image src={`/${item.image}`} alt='logo' height={100} width={100} />
@@ -100,52 +97,59 @@ const Cart = () => {
              </td>
            </tr>
           ))}
-          
            </tbody>
            </table>
            </div>
-
-          <h2>Grand Total: $ {getTotalPrice()}</h2>
-
           <div className="mt-4">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full md:w-1/2">
+          <h2 className="text-center mb-4 font-bold text-lg">Grand Total: ${getTotalPrice()}</h2>
+            <button onClick={()=>setShowPaypal(true)}
+            className="bg-green-500 hover:bg-green-700 hover:tracking-widest hover:text-white font-bold py-2 px-4 rounded w-full ">
               Pay Now (${getTotalPrice()})
             </button>
           </div>
-         
+          <div className={showPaypal ?  "absolute bg-lime-50 rounded-md  top-0 w-full h-screen " : "hidden" }>
+            <div className="flex items-center   justify-between m-4">
+            <h4 className="text-3xl  ">
+                 Amount Due: ${getTotalPrice()}
+            </h4> 
+             <button
+             onClick={()=>setShowPaypal(false)}
+              className="text-lg border rounded-sm cursor-pointer py-2 px-4" > X
+             </button>
+            </div>
+            <div className="flex items-center justify-center h-3/4">
+              <div className="block w-80">
+                <PayPalButton
+                    options={{
+                        clientId:"Af0hsDbQMrzfPTnYx_wSGEOs3J3Q07op0fHSG0KsEuum8n8kEc7-LwYuAO9H4kXcFZcSEc7AumjMAAR1",
+                        currency: "USD",
+                        }}
+                        amount={getTotalPrice()}
+                        onSuccess={(details, data) => {
+                        alert("Transaction completed by " + details.payer.name.given_name);
+                        //   OPTIONAL: Call your server to save the transaction
+                        return fetch("http://localhost:3000/api/paypaltransaction", {
+                            method: "post",
+                            body: JSON.stringify({
+                            orderId: data.orderID 
+                            })
+                        });
+                        }}
+                  />
+              </div>
+            </div>
+          </div>
           </>
         )
-        
          }
       </div>
-
     </div>
-
   )
 }
 
 export default Cart
 
-{/* <table class="table-auto">
-  <thead>
-    <tr>
-      <th>Song</th>
-      <th>Artist</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-      <td>Malcolm Lockyer</td>
-      <td>1961</td>
-      <div className="flex justify-around mb-6">
-                <h4>Product</h4>
-                <h4>Price</h4>
-                <h4>Quantity</h4>
-                <h4>Total</h4>
-              </div>
-    </tr> */}
+
 
 
 

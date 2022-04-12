@@ -2,7 +2,11 @@ import React from 'react'
 
 function privacy() {
   return (
-    <div>privacy</div>
+    <div>
+      <div>
+     
+      </div>
+    </div>
   )
 }
 
