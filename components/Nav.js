@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import { React, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { HiMenu   } from "react-icons/hi";
 import { AiOutlineClose , AiOutlineSearch, AiOutlineRight, AiOutlineUp } from "react-icons/ai";
