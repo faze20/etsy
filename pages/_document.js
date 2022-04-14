@@ -18,7 +18,7 @@ class MyDocument extends Document {
           
           
           </Head>
-          <body>
+          <body className='scroll-smooth'>
             <Main />
             <NextScript />
            
