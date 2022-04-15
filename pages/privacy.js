@@ -1,12 +1,80 @@
-import React from 'react'
 import Link from 'next/link';
+import { useState } from 'react'
+import {RiArrowDropDownLine} from "react-icons/ri";
 
 
 function Privacy() {
+  const [showDropdown, setShowDropdown]  = useState(false)
+  const mobileToggle = () => {
+      setShowDropdown(prev => !prev)
+  }
   return (
-    <div className='leading-8'>
-      <div>
-        <h2>PRIVACY NOTICE</h2>
+    <div id='top-div'>
+          <div className='my-4 bg-zinc-200 rounded relative scroll-smooth pt-0 lg:pt-12' >
+                   <h1 className='underline font-medium pt-2 md:pt-0 text-center text-2xl'>
+                      Privacy
+                    </h1>
+                <div className='flex flex-col mt-12 md:mt-0 lg:flex-row mx-1 justify-between items-center lg:mx-24'>
+                   
+                    <div className='w-80 '>
+                        <div className='my-4'>
+                            <label htmlFor="categories">Select Category</label>
+                        </div>
+                       
+                        <button 
+                            onClick={mobileToggle}
+                            className='flex items-center w-full border-2 border-gray-400 justify-between mb-4 p-2 rounded-md'>
+                             Privacy Policies  <RiArrowDropDownLine />
+                         </button>
+                        <div className= {showDropdown ?"absolute bg-slate-500 rounded-md z-10" : "hidden"} >
+                            <ul>
+                                 <li className='p-2 hover:text-white'><Link href="#info">WHAT INFORMATION DO WE COLLECT ? </Link></li>
+                                 <li className='p-2 hover:text-white'><Link href="#info-process">HOW DO WE PROCESS YOUR INFORMATION? </Link></li>
+                                 <li className='p-2 hover:text-white'><Link href="#infoshare">WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION? </Link></li>
+                                <li className='p-2 hover:text-white'>
+                                    <Link href="#technology-used">DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</Link>
+                                </li>
+                                <li className='p-2 hover:text-white'>
+                                    <Link href="#social-login">HOW DO WE HANDLE YOUR SOCIAL LOGINS?</Link>
+                                </li>
+                                <li className='p-2 hover:text-white'>
+                                    <Link href="#info-duration">HOW LONG DO WE KEEP YOUR INFORMATION?</Link>
+                                </li>
+                                <li className='p-2 hover:text-white'><Link href="#how-infokept">HOW DO WE KEEP YOUR INFORMATION SAFE? </Link></li>
+                                <li className='p-2 hover:text-white'>
+                                    <Link href="#privacy-rights">WHAT ARE YOUR PRIVACY RIGHTS?</Link>
+                                </li>
+                                <li className='p-2 hover:text-white'><Link href="#controls">CONTROLS FOR DO-NOT-TRACK FEATURES </Link></li>
+                                <li className='p-2 hover:text-white'><Link href="#california-rights">DO CALIFORNIARESIDENTS HAVE SPECIFIC PRIVACY RIGHTS </Link></li>
+                                <li className='p-2 hover:text-white'><Link href="#updates">DO WE MAKE UPDATES TO THIS NOTICE? </Link></li>
+                                <li className='p-2 hover:text-white'><Link href="#notice-contact">HOW CAN YOU CONTACT US ABOUT THIS NOTICE? </Link></li>
+                                <li className='p-2 hover:text-white'><Link href="#review">HOW CAN YOU REVIEW UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU? </Link></li>
+
+                            </ul>
+                        </div>
+                    </div> 
+                    <div  className='w-80 mb-4 lg:mb-0'>
+                        <div className='my-4'>
+                            <label htmlFor="search">Search</label>
+                        </div>
+                        <div className='flex items-center border-b border-gray-400'>
+                            <input
+                             className=' bg-zinc-200 mr-4 w-full pb-2'
+                              type="text"
+                               placeholder='Search by typing keywords...' />
+                            &#128269;
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+   
+    <div className='leading-8 relative'>
+      <div id='top-div'>
+        <h2 className='text-3xl font-bold text-center my-6'>PRIVACY NOTICE</h2>
         <p>
         
             Last updated April 12, 2022
@@ -24,7 +92,7 @@ function Privacy() {
             Services. If you still have any questions or concerns, please contact us at
             <span className="underline  decoration-1"> email@faze20.github.io/codesnippets/.</span>
             </p>
-            <h2 className='text-3xl font-bold'>SUMMARY OF KEY POINTS</h2>
+            <h2 className='text-3xl font-bold text-center my-6'>SUMMARY OF KEY POINTS</h2>
             
             <p>
             This summary provides key points from our privacy notice, but you can find out more
@@ -78,20 +146,20 @@ function Privacy() {
             <h2 id='table' className='text-3xl font-bold mt-6'> TABLE OF CONTENTS</h2>
             <ul>
               <li>1. WHAT INFORMATION DO WE COLLECT</li>
-              <li>2 HOW DO WE PROCESS YOUR INFORMATION?</li>
-              <li> 3 WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</li>
+              <li>2. HOW DO WE PROCESS YOUR INFORMATION?</li>
+              <li> 3. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</li>
               <li> 4. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</li>
               <li> 5. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</li>
               <li>6. HOW LONG DO WE KEEP YOUR INFORMATION?</li>
-              <li> 7 HOW D0 WE KEEP YOUR INFORMATION SAFE?</li>
-              <li>8 WHAT ARE YOUR PRIVACY RIGHTS2</li>
-              <li>9 CONTROLS FOR DO-NOT-TRACK FEATURES</li>
-              <li>10. DO CALIFORNIARESIDENTS HAVE SPECIFIC PRIVACY RIGHTS2</li>
-              <li>11. DO WE MAKE UPDATES TO THIS NOTICE2</li>
-              <li>12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE2</li>
-              <li> 13. HOW CAN YOU REVIEW UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU2</li>
+              <li> 7. HOW D0 WE KEEP YOUR INFORMATION SAFE?</li>
+              <li>8. WHAT ARE YOUR PRIVACY RIGHTS?</li>
+              <li>9. CONTROLS FOR DO-NOT-TRACK FEATURES</li>
+              <li>10. DO CALIFORNIARESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</li>
+              <li>11. DO WE MAKE UPDATES TO THIS NOTICE?</li>
+              <li>12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</li>
+              <li> 13. HOW CAN YOU REVIEW UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</li>
             </ul>
-            <h2 className='text-3xl font-bold mt-6'>1. WHAT INFORMATION DO WE COLLECT?</h2>
+            <h2 id='info' className='text-3xl font-bold mt-6'>1. WHAT INFORMATION DO WE COLLECT?</h2>
             
             <h4 className='text-base font-semibold my-2'>Personal information you disclose to us</h4>
             
@@ -122,9 +190,9 @@ function Privacy() {
              We may collect data necessary to process your payment if you make
             purchases, such as your payment instrument number (such as a credit card number), and the
             security code associated with your payment instrument. All payment data is stored by Paypal.
-            You may find their privacy notice link(s) here:
+            You may find their privacy notice link(s) here: <br />
             <Link href="https:/www.paypal.com/us/webapps/mpp/ua/privacy-full">
-                 https:/www.paypal.com/us/webapps/mpp/ua/privacy-full
+                  www.paypal.com/us/webapps/mpp/ua/privacy-full
             </Link>
 
             </p>
@@ -174,7 +242,7 @@ function Privacy() {
             seting on your device. However, if you choose to opt out, you may not be able to use
             certain aspects of the Services.
               </p>
-            <h4 className='text-base font-semibold my-2'>2. HOW DO WE PROCESS YOUR INFORMATION?</h4>
+            <h4 id='info-process' className='text-base font-semibold my-2'>2. HOW DO WE PROCESS YOUR INFORMATION?</h4>
 
             
             <span className="underline  decoration-1">In Short: </span>
@@ -203,7 +271,7 @@ function Privacy() {
             To comply with our legal obligations. We may process your information to comply with
             our legal obligations, respond to legal requests, and exercise, establish, or defend our
             legal rights.
-            <h4 className='text-base font-semibold my-2'>3. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h4>
+            <h4 id='infoshare' className='text-base font-semibold my-2'>3.WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h4>
             
             
             <span className="underline  decoration-1">In Short:</span> We may share information in specific situations described in this section and/or with
@@ -212,15 +280,14 @@ function Privacy() {
             Business Transfers. We may share or transfer vour information in connection with ,or during negotiations of,
             any merger, sale of company assests, finacing, or acquisition of all or a portion of our business to 
             another company.
-            <h4 className='text-base font-semibold my-2'>4. DO WE USE COOKIES AND OTHER TRACKING
-            TECHNOLOGIES?</h4>
+            <h4 id='technology-used' className='text-base font-semibold my-2'>4. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h4>
             
             <span className="underline  decoration-1">In Short:</span> We may use cookies and other tracking technologies to collect and store your
             information.
             We may use cookies and similar tracking technologies (ike web beacons and pixels) to access
             or store information. Specific information about how we use such technologies and how you can
             refuse certain cookies is set out in our Cookie Notice
-            <h4 className='text-base font-semibold my-2'>5. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</h4>
+            <h4 id='social-login' className='text-base font-semibold my-2'>5. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</h4>
             
             <span className="underline  decoration-1">In Short:</span>
              lf you choose to register or log in to our services using a social media account, we
@@ -238,7 +305,7 @@ function Privacy() {
             party social media provider. We recommend that you review their privacy notice to understand
             how they collect, use and share your personal information, and how you can set your privacy
             preferences on their sites and apps.
-            <h4 className='text-base font-semibold my-2'>6. HOW LONG DO WE KEEP YOUR INFORMATION?</h4>
+            <h4 id='info-duration' className='text-base font-semibold my-2'>6. HOW LONG DO WE KEEP YOUR INFORMATION?</h4>
             
             <span className="underline  decoration-1">In Short:</span>
              We keep your information for as long as necessary to fulfill the purposes outlined in
@@ -252,7 +319,7 @@ function Privacy() {
             will either delete or anonymize such information, or, if this is not possible (for example, because
             your personal information has been stored in backup archives), then we will securely store your
             personal information and isolate it from any further processing until deletion is possible.
-            <h4 className='text-base font-semibold my-2'>7. HOW DO WE KEEP YOUR INFORMATION SAFE?</h4>
+            <h4 id='how-infokept' className='text-base font-semibold my-2'>7. HOW DO WE KEEP YOUR INFORMATION SAFE?</h4>
             
             <span className="underline  decoration-1">In Short:</span>
              We aim to protect your personal information through a system of organizational and
@@ -266,15 +333,18 @@ function Privacy() {
             information. Although we will do our best to protect your personal information, transmission of
             personal information to and from our Services is at your own risk. You should only access the
             Services within a secure environment
-            <h4 className='text-base font-semibold my-2'>8. WHAT ARE YOUR PRIVACY RIGHTS?</h4>
+            <h4 id='privacy-rights' className='text-base font-semibold my-2'>8. WHAT ARE YOUR PRIVACY RIGHTS?</h4>
             
             <span className="underline  decoration-1">In Short:</span> You may review, change, or terminate your account at any time
             If you are located in the EEA or UK and you believe we are unlawfully processing your personal
             information, you also have the right to complain to your local data protection supervisory
-            authority. You can find their contact details here: <Link href="https://ec.europa.eu/justice/data"> https://ec.europa.eu/justice/data</Link>
-            protection/bodies/authorities lindex en.htm
+            authority. You can find their contact details here: 
+            <Link href="https://ec.europa.eu/justice/data"> 
+            https://ec.europa.eu/justice/data/ protection/bodies/authorities/index en.htm
+            </Link>
+           
             If you are located in Switzerland, the contact details for the data protection authorities are
-            available here:<Link href=" https://www.edoeb.admin ch/edoeb/en/home.html"> https://www.edoeb.admin ch/edoeb/en/home.html</Link>
+            available here:<Link href=" https:www.edoeb.adminch/edoeb/en/home"> https://www.edoeb.adminch/edoeb/en/home.html </Link>
 
             Withdrawing.your consent: lf we are relying on your consent to process your personal
             information, which may be express and/or implied consent depending on the applicable law, you
@@ -308,7 +378,7 @@ function Privacy() {
             If you have questions or comments about your privacy rights, you may email us at
             <span className="underline  decoration-1"> afeez@faze20.github.io/codesnippets</span>
             
-            <h4 className='text-base font-semibold my-2'>9. CONTROLS FOR DO-NOT-TRACK FEATURES</h4>
+            <h4 id='controls' className='text-base font-semibold my-2'>9. CONTROLS FOR DO-NOT-TRACK FEATURES</h4>
             
             Most web browsers and some mobile operating systems and mobile applications include a Do-
             Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to
@@ -318,7 +388,7 @@ function Privacy() {
             communicates your choice not to be tracked online. If a standard for online tracking is adopted
             that we must follow in the future, we will inform you about that practice in a revised version of
             this privacy notice.
-            <h4 className='text-base font-semibold my-2'>10. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY
+            <h4 id='california-rights' className='text-base font-semibold my-2'>10. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY
             RIGHTS?</h4>
             
             <p>
@@ -485,32 +555,32 @@ function Privacy() {
               behalf.
               <h4 className='text-base font-semibold my-2'>Will your information be shared with anyone else? </h4>
               <p>
-              We may disclose your personal information with our senvice providers pursuant to a written
+              We may disclose your personal information with our service providers pursuant to a written
               contract between us and each service provider. Each service provider is a for-profit entity that
               processes the information on our behalf.
               We may use your personal information for our own business purposes, such as for undertaking
               internal research for technological development and demonstration. This is not considered to be
-              "seling" of your personal information.
-              <span className="underline  decoration-1"> Afeezllc</span>
+              "selling" of your personal information.
+              <span className="underline  decoration-1"> Afeezllc </span>
               has not disclosed or sold any personal information to third parties for a business or
-              commercial purpose in the preceding twelve (12) months.  <span className="underline  decoration-1"> Afeezllc</span>
+              commercial purpose in the preceding twelve (12) months.  <span className="underline  decoration-1"> Afeezllc </span>
                will not sell personal
               information in the future belonging to website visitors, users, and other consumers
 
               </p>
               Your rights with respect to your personal data
               Right to request deletion of the data- Request to delete
-              YOu can ask for the deletion of your personal information. If you ask us to delete your personal
+              You can ask for the deletion of your personal information. If you ask us to delete your personal
               information, we will respect your request and delete your personal information, subject to certain
               exceptions provided by law, such as (but not limited to) the exercise by another consumer of his
               or her right to free speech, our compliance requirements resulting from a legal obligation, or any
               processing that may be required to protect against illegal activities.
-              Right to be informed=Request to know
+              Right to be informed = Request to know
               Depending on the circumstances, you have a right to know
               whether we collect and use your personal information
               the categories of personal information that we collect
-              the purposes for wnich the collected personal intormation is used,
-              whether we sell your personal intomation to third parties
+              the purposes for which the collected personal information is used,
+              whether we sell your personal information to third parties
               the categories of personal information that we sold or disclosed for a business purpose
               the categories of third parties to whom the personal information was sold or disclosed for
               a business purpose and
@@ -519,68 +589,93 @@ function Privacy() {
               information that is de-identified in response to a consumer request or to re-identify individual
               data to verifty a consumer request.
               Right to Non-Discrimination for the Exercise of a consumer's Privacy Rights
-              We will not discriminate against you if you exercise your privacy rights
-              <span className="underline  decoration-1">Verification process</span>
+              We will not discriminate against you if you exercise your privacy rights.
+
+              <h4 className='text-base font-semibold my-2'>Verification process</h4>
+
               Upon receiving your request, we will need to verify your identity to determine you are the same
-              person about whom we nave the information in our system. These verification efforts require us
-              to ask yo to provide intomation so that we can match t With intomation you have previously
+              person about whom we have the information in our system. These verification efforts require us
+              to ask you to provide information so that we can match it With information you have previously
               provided us. For instance, depending on the type of request you submit, we may ask you to
               provide certain information so that we can match the information you provide with the
               information we already have on file, or we may contact you through a communication method
               (eg.phone or email) that you have previously provided to us. We may also use other
               verification methods as the circumstances dictate.
-              we will onily use personal intormation provIded in your request to verify your identity or authority
+              we will only use personal information provided in your request to verify your identity or authority
               to make the request. To the extent possible, we will avoid requesting additional information from
-              you for the purposes of verification. However, if we cannot verify your identity from thee
+              you for the purposes of verification. However, if we cannot verify your identity from the
               information already maintained by us, we may request that you provide additional infomation for
               the purposes of verifying your identity and for security or fraud-prevention purposes. We will
               delete such additionally provided information as soon as we finish veriying you.
-              <span className="underline  decoration-1">Other privacy rights</span>
+
+              <h4 className='text-base font-semibold my-2'>Other privacy rights</h4>
+
               You may object to the processing of your personal information.
-              YOu may request correction of your personal data if it is incorrect or no longer relevant, or
+              You may request correction of your personal data if it is incorrect or no longer relevant, or
               ask to restrict the processing of the information.
               You can designate an authorized agent to make a request under the CCPA on your
               behalf. We may deny a request from an authorized agent that does not submit proof that
               they have been validly authorized to act on your behalf in accordance with the CCPA.
-              YOu may request to opt out from future selling of your pesonal information to third parties.
+              You may request to opt out from future selling of your pesonal information to third parties.
               Upon receiving an opt-out request, we will act upon the request as soon as feasibly
               possible, but no later than fifteen (15) days from the date of the request submission.
               To exercise these rights, you can contact us by email at  <span className="underline  decoration-1">afeez@faze20.github.io/codesnippets</span>,
               by visiting <Link href="https://www.softwaredevbytes.com/contact">https:/ifaze20.github.io/codesnippets/contact</Link> , 
               or by referring to the contact details at
               the botom of this document. lf you have a complaint about how we handle your data, we would
-              ike to hear from you.
-              <h4 className='text-base font-semibold my-2'>11. DO WE MAKE UPDATES TO THIS NOTICE?</h4>
+              like to hear from you.
+
+              <h4 id='updates' className='text-base font-semibold my-2'>11. DO WE MAKE UPDATES TO THIS NOTICE?</h4>
               
-              <span className="underline  decoration-1">In Short:</span>  Yes, we will update this notice as necesSsary to stay compliant with
+              <span className="underline  decoration-1">In Short:</span>  Yes, we will update this notice as necesssary to stay compliant with
                relevant laws.
               We may update this privacy notice from time to time. The updated version will be indicated by an
               updated "Revised" date and the updated version will be effective as soon as it is accessible. If
               we make material changes to this privacy notice, we may notify you either by prominently
               posting a notice of such changes or by directly sending you a notification. we encourage you to
               review this privacy notice frequently to be informed of how we are protecting your information.
-              <h4 className='text-base font-semibold my-2'>12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h4>
-              IF you have questions or comments about this notice, you may email us at
+
+              <h4 id='notice-contact' className='text-base font-semibold my-2'>12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h4>
+
+              If you have questions or comments about this notice, you may email us at
               <span className="underline  decoration-1">afeez@faze20.github.io/codesnippets</span> or by post to:
-              Afeezllc
-              15241 Holly drive
-              fontana
-              Fontana, CA 92335
-              United States
-              <h4 className='text-base font-semibold my-2'> 13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE
+              <ul>
+              <li>  Afeezllc</li>
+              <li> 15241 Holly drive</li>
+              <li>fontana</li>
+              <li> Fontana, CA 92335</li>
+              <li> United States</li>
+            </ul>
+             
+             
+              
+              
+             
+              <h4 id='review' className='text-base font-semibold my-2'> 13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE
               COLLECT FROM YOU?</h4>
              
               Based on the applicable laws of your country, you may have the right to request access to the
               personal information we collect from you, change that information, or delete it in some
               Circumstances. To request to review, update, or delete your personal information, please visit
-              <Link href="https:/www.softwaredevbytes.com/contact">https:/ifaze20github io/codesnippets/contact</Link>
+              <Link href="https:/www.softwaredevbytes.com/contact"> https:/ifaze20github io/codesnippets/contact</Link>
               
           </p>
         </div>
-        
+        <div className='sticky bottom-1 right-0 left-0 text-right p-4 '>
+          <span className='w-16  border bg-green-700 rounded-md p-2  mb-1 text-white'>
+            <Link 
+            href="#top-div">
+              Back to Top &uarr;
+            </Link>
+
+          </span>
+
+         
+        </div>
 
        </div>
      
+    </div>
     </div>
   )
 }

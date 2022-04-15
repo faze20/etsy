@@ -13,7 +13,10 @@ function Returns() {
     <div>
         <div>
             <div className='my-4 bg-zinc-200 rounded relative scroll-smooth pt-0 lg:pt-12' >
-                <div className='flex flex-col lg:flex-row mx-1 justify-between items-center lg:mx-24'>
+                    <h1 className='underline font-medium pt-2 md:pt-0 text-center text-2xl'>
+                       Returns
+                    </h1>
+                <div className='flex flex-col mt-12 md:mt-0 lg:flex-row mx-1 justify-between items-center lg:mx-24'>
                    
                     <div className='w-80 '>
                         <div className='my-4'>
@@ -25,20 +28,20 @@ function Returns() {
                         className='flex items-center w-full border-2 border-gray-400 justify-between mb-4 p-2 rounded-md'>Returns &amp; Refund  <RiArrowDropDownLine /> </button>
                         <div className= {showDropdown ?"absolute bg-slate-500 rounded-md" : "hidden"} >
                             <ul>
-                                 <li className='p-2'><Link href="#returns">Returns &amp; Refund </Link></li>
-                                 <li className='p-2'><Link href="#quantity">How many items can I order per month? </Link></li>
-                                 <li className='p-2'><Link href="#amount">How much is shipping? </Link></li>
-                                <li className='p-2'>
+                                 <li className='p-2 hover:text-white'><Link href="#returns">Returns &amp; Refund </Link></li>
+                                 <li className='p-2 hover:text-white'><Link href="#quantity">How many items can I order per month? </Link></li>
+                                 <li className='p-2 hover:text-white'><Link href="#amount">How much is shipping? </Link></li>
+                                <li className='p-2 hover:text-white'>
                                     <Link href="#address">Address</Link>
                                 </li>
-                                <li className='p-2'>
+                                <li className='p-2 hover:text-white'>
                                     <Link href="#returnedproducts">What do you do with returned products?</Link>
                                 </li>
-                                <li className='p-2'>
+                                <li className='p-2 hover:text-white'>
                                     <Link href="#location">Where do you ship from?</Link>
                                 </li>
-                                <li className='p-2'><Link href="#shippingtime">How long does shipping take? </Link></li>
-                                <li className='p-2'>
+                                <li className='p-2 hover:text-white'><Link href="#shippingtime">How long does shipping take? </Link></li>
+                                <li className='p-2 hover:text-white'>
                                     <Link href="#track">How do I track my order?</Link>
                                 </li>
                             </ul>
@@ -181,13 +184,3 @@ export default Returns
 
 
 
-{/* <select className='mb-4 p-2 rounded-md w-full ' name="categories" id="categories">
-<option value=""></option>
-<option value="technical">Address</option>
-<option value="technical">What do you do with returned products?</option>
-<option value="technical">Where do you ship from?</option>
-<option value="General"></option>
-<option value="delivery"></option>
-<option value="orders"></option>
-<option value="returns">How do I track my order?</option>
-</select> */}
