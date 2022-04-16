@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PayPalButton } from "react-paypal-button-v2";
+import { PayPalButton } from "@repeatgg/react-paypal-button-v2";
 import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
 import {
