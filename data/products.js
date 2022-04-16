@@ -272,27 +272,33 @@ export const collections = [
 export const categories = [
     {
         title:'perfect lips collection',
-        image:'lippy5.png'
+        image:'lippy5.png',
+        quantity: 6
     },
     {
         title:'lips',
-        image:'lippy1.png'
+        image:'lippy1.png',
+        quantity: 2
     },
     {
         title:'eyes',
-        image:'eyelashesn5.png'
+        image:'eyelashesn5.png',
+        quantity: 6
     },
     {
         title:'face',
-        image:'facials3.png'
+        image:'facials3.png',
+        quantity: 7
     },
     {
         title:'accesories',
-        image:'sunny1.png'
+        image:'sunny1.png',
+        quantity: 4
     },
     {
         title:'sales',
-        image:'lippy3.png'
+        image:'lippy3.png',
+        quantity: 6
     },
 ]
 

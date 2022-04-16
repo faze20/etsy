@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import {
     AiOutlineHome, 
     AiOutlineTag ,
@@ -15,11 +15,55 @@ import { IoMdPerson , IoMdSnow } from "react-icons/io";
 import { BiBasket } from "react-icons/bi";
 import { BiStore } from "react-icons/bi";
 import { IoLogoFacebook } from "react-icons/io5";
+import BarChart from '../components/Chart';
+import {collections , categories} from '../data/products'
 
 
 
 
 function Dashboard() {
+    const labels = ['perfect lips collection', 'accessories', 'lashes', 'lips', 'sales', 'face'];
+
+    const quantity = (category) => collections.filter(function(item){
+        if(item.category === category){
+            return item
+
+        }
+    })
+    // const side = labels.map((item)=> item)
+    // const side = collections.map((item)=> {
+    //     item.category.filter(function(cat){
+    //         return cat
+    //     })
+    // }
+       
+    // )
+    const items = labels.map((data) => quantity(data))
+    const counts = {}
+    for(const num of items){
+        counts[num] = counts[num] ? counts[num] +1 : 1 ;
+    }
+
+    console.log(items);
+
+    const [userData, setUserData] = useState({
+        labels: categories.map((item)=> item.title),
+        datasets: [
+          {
+            label: "Categories",
+            data: categories.map((data) => (data.quantity)),
+            backgroundColor: [
+                "rgba(75,192,192,1)",
+                "#ecf0f1",
+                "#50AF95",
+                "#f3ba2f",
+                "#2a71d0",
+              ],
+            borderColor: "black",
+            borderWidth: 2,
+          },
+        ],
+      });
   return (
     <div>
         <div className='flex '>
@@ -77,7 +121,7 @@ function Dashboard() {
                         </div>
                         <p>compared to Apr 18-May 17, 2022</p>
                     </div>
-                    <div className='flex'>
+                    <div className='flex justify-between'>
                         <div>
                             <div>
                                 <h3>Total Sales</h3>
@@ -86,6 +130,9 @@ function Dashboard() {
                             <div> <p>$137,142.33</p> <span>&uarr;1,046%</span></div>
                             <div><span>Online Store</span><span>$137,142.33</span><span>&uarr;1,046%</span></div>
                             <h4>SALES OVER TIME</h4>
+                            <div className="w-96">
+                                <BarChart chartData={userData}/>
+                            </div>
                         </div>
 
                     </div>
