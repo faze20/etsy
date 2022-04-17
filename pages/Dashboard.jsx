@@ -16,6 +16,7 @@ import { BiBasket } from "react-icons/bi";
 import { BiStore } from "react-icons/bi";
 import { IoLogoFacebook } from "react-icons/io5";
 import BarChart from '../components/Chart';
+import LineChart from '../components/LineChart';
 import {collections , categories} from '../data/products'
 
 
@@ -38,13 +39,7 @@ function Dashboard() {
     // }
        
     // )
-    const items = labels.map((data) => quantity(data))
-    const counts = {}
-    for(const num of items){
-        counts[num] = counts[num] ? counts[num] +1 : 1 ;
-    }
-
-    console.log(items);
+    
 
     const [userData, setUserData] = useState({
         labels: categories.map((item)=> item.title),
@@ -67,7 +62,7 @@ function Dashboard() {
   return (
     <div>
         <div className='flex '>
-            <div >
+            <div className='basis-1/4'>
               <div >
                   <ul>
                     <li> <div className='flex items-center'> <AiOutlineHome/>Home  </div> </li>
@@ -112,9 +107,11 @@ function Dashboard() {
               </div>
 
             </div>
-            <div>
+
+            <div className='basis-3/4'>
+            <h2>Overview Dashboard</h2>
+            <div className='flex'>
                 <div>
-                    <h2>Overview Dashboard</h2>
                     <div>
                         <div className="calendar">
                             Last 30 Days
@@ -137,6 +134,22 @@ function Dashboard() {
 
                     </div>
                 </div>
+                <div>
+                    <div>
+                        <h3>Online store sessions</h3>
+                        <span>view report</span>
+                    </div>
+                    <div className='flex'>
+                        <h2>93,418</h2>
+                        <span>&uarr;1,046%</span>
+                    </div>
+                    <div className='flex'><span>Visitors</span><span>$88,009</span><span>&uarr;43%</span></div>
+                    <h4>SESSIONS OVER TIME</h4>
+                    <div>
+                        <LineChart chartData={userData} />
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
