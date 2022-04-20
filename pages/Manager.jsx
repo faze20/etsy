@@ -27,12 +27,20 @@ import Marketing from '../components/dashboard/Marketing';
 import Discounts from '../components/dashboard/Discounts';
 import DashApps from '../components/dashboard/DashApps';
 import Link from 'next/link';
+import { format, parseISO, subDays } from "date-fns"
 
 
+const reportDatas = []
+for(let num =30; num >= 0; num--){
+    var rawDate = parseISO(subDays(new Date(), num).toISOString().substring(0,10))
+    reportDatas.push({
+        date:format(rawDate , "MMM, d"),
+        value:1 + Math.random(),
+    })
 
+}
 
 function Dashboard() {
-    const labels = ['perfect lips collection', 'accessories', 'lashes', 'lips', 'sales', 'face'];
     const [showAnalytics , setShowAnalytics] = useState(false)
     const [allowComponent ,setAllowComponent ] = useState('home')
     
@@ -45,19 +53,67 @@ function Dashboard() {
         setAllowComponent(id)
     }
 
-    const quantity = (category) => collections.filter(function(item){
-        if(item.category === category){
-            return item
+   const salesData = {
+       labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July'],
+       datasets:[
+           {
+               label: 'Sales for 2021(M)',
+               data: [3,4,6,8,2,5,9],
+               borderColor: '#000',
+               borderWidth: 2,
+               backgroundColor: [
+                "rgba(75,192,192,1)",
+                "#ecf0f1",
+                "#50AF95",
+                "#f3ba2f",
+                "#2a71d0",
+            ],
+               pointBorderColor:['rgba(255,206,86,0.2'],
 
-        }
-    })
-   
+           },
+           {
+               label: 'Sales for 2022(M)',
+               data: [5,8,1,4,7,1,6],
+               backgroundColor: [
+                "rgba(255,206,86,0.2)",
+                "#7367f0",
+                "#ffe600",
+                "#2c3e50",
+                "#323232",
+            ],
+               pointBorderColor: 'rgba(54,162,235,0.2)',
+               borderWidth:2,
+               borderColor:'#000'
+           }
+
+       ]
+   }
+   const reportsData = {
+       labels:reportDatas.map((report)=> report.date),
+       datasets:[
+           {
+               label: 'Sales report',
+               data:reportDatas.map((report)=>report.value),
+               backgroundColor: [
+                "rgba(75,192,192,1)",
+                "#ecf0f1",
+                "#50AF95",
+                "#f3ba2f",
+                "#2a71d0",
+            ],
+            borderColor: "black",
+            borderWidth: 2,
+
+           }
+       ]
+   }
+  
     
 
-    const [userData, setUserData] = useState({
-        labels: categories.map((item)=> item.title),
+    const barData = {
+        labels:categories.map((item)=> item.title),
         datasets: [
-          {
+        {
             label: "Categories",
             data: categories.map((data) => (data.quantity)),
             backgroundColor: [
@@ -66,12 +122,14 @@ function Dashboard() {
                 "#50AF95",
                 "#f3ba2f",
                 "#2a71d0",
-              ],
+            ],
             borderColor: "black",
             borderWidth: 2,
-          },
+            fill:true,
+        },
         ],
-      });
+        
+    }
   return (
     <div className=''>
         <div className='flex '>
@@ -172,10 +230,10 @@ function Dashboard() {
 
             <div className='basis-3/4 rounded-md  p-4 bg-stone-100'>
                
-                {allowComponent === 'overview' ?  <div><DashOverview  title='Overview' /> </div> : <div></div> }
-                {allowComponent === 'insights' ?  <div><DashOverview  title='Insights' /> </div> : <div></div> }
-                {allowComponent === 'reports' ?  <div><DashOverview  title='Reports' /> </div> : <div></div> }
-                {allowComponent === 'liveview' ?  <div><DashOverview  title='Live view' /> </div> : <div></div> }
+                {allowComponent === 'overview' ?  <div><DashOverview  title='Overview' data={barData} lChart='true' bChart='true' /> </div> : <div></div> }
+                {allowComponent === 'insights' ?  <div><DashOverview  title='Insights' data={salesData} lChart='true' bChart='true' /> </div> : <div></div> }
+                {allowComponent === 'reports' ?  <div><DashOverview  title='Reports' data={reportsData} lChart='true' bChart='true' /> </div> : <div></div> }
+                {allowComponent === 'liveview' ?  <div><DashOverview  title='Live view'  data={reportsData} lChart='true'  /> </div> : <div></div> }
                 {allowComponent === 'home' ?  <div><DashHome /></div> : <div></div> }
                 {allowComponent === 'orders' ?  <div><DashOrders /></div> : <div></div> }
                 {allowComponent === 'customers' ?  <div><DashCustomers /> </div> : <div></div> }
