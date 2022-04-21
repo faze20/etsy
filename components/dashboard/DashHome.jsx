@@ -1,4 +1,9 @@
 import { useState } from 'react'
+import { AiOutlineTag ,AiOutlineCheckCircle } from "react-icons/ai";
+import { IoIosGlobe } from "react-icons/io";
+import Image from 'next/image'
+
+ 
 
 function DashHome() {
   const [modal , setModal] = useState(true)
@@ -20,10 +25,47 @@ function DashHome() {
                  }
               
           </div>
-          <div>
-            <div className='flex'>
-              
+          <div className='bg-white mt-4'>
+            <div className='flex mb-4'>
+              <div className="flex space-x-96 py-4 px-2">
+                <h1>You're off to a great start</h1>
+                <div>
+                  <span> &#8226; &#8226; &#8226;</span>
+                </div>
+              </div>
+            </div>
 
+            <div>
+              <div className="flex">
+                <div className='basis-3/12'>
+                  <div className='flex items-center py-6'><span className='text-blue-400 mx-2'><AiOutlineTag/></span><button>Add product</button> </div>
+                  <div className='flex items-center py-6'><span className='text-blue-400 mx-2'><AiOutlineCheckCircle/></span><button>Customize Theme</button> </div>
+                  <div className='flex items-center py-6'><span className='text-blue-400 mx-2'><IoIosGlobe/></span><button>Add domain</button> </div>
+                </div>
+                <div className="basis-9/12 bg-slate-50">
+                  <div className='flex'>
+                    <div>
+                      <h2>Add your first product </h2>
+                      <p>
+                        You can add physical items,digital downloads,services, or 
+                        anything else you 
+                        dream up
+                      </p>
+                    </div>
+                    <div>
+                    <Image
+                     src='/product.png'
+                     alt="klmn cosmetics lippy" 
+                     width={200}
+                     height={200}
+                    
+                    />
+                    </div>
+                  </div>
+                    <button>Add product</button>
+
+                </div>
+              </div>
             </div>
           </div>
 
